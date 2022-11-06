@@ -52,6 +52,10 @@ public class ReservationFrontController extends HttpServlet{
 			case "/reservation/RoomUpdate.re" :
 				forward = new RoomUpdateAction().execute(req, resp);
 				break;
+			 // 결제페이지에서 예약 버튼 클릭 후 인서트
+//			case "/reservation/Reservation.re" :
+//				forward = new ReservationCheckAction().execute(req,resp);
+//				break;
 		}
 		
 		if(forward != null) {

@@ -1,5 +1,23 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%
+String r_price = request.getParameter("r_price");
+String r_type = request.getParameter("r_type");
+String r_id = request.getParameter("r_id");
+String checkin_date = request.getParameter("checkin_date");
+String checkout_date = request.getParameter("checkout_date");
+
+
+	
+session.getAttribute("param");
+
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,6 +41,7 @@
 
 <body>
      <%@ include file="/header_footer/header.jsp" %>
+     
      
       <!-- Breadcrumb Area Start -->
     <div class="breadcrumb-area contact-breadcrumb bg-img bg-overlay jarallax" style="background-image: url(../image/그랜드1.jpg);">
@@ -195,11 +214,11 @@
                                 </div>
                                 &nbsp;&nbsp;
                                 <div style="display: inline-block;background-color: #524b42;width: auto; height: 50px;">
-                                        <a href="" style=" color: white; margin-left: 10px;margin-right: 10px;">결제 금액 : </a><a href="" style=" color: white; margin-left: 10px;margin-right: 10px;"> x 원</a>
+                                        <a href="" style=" color: white; margin-left: 10px;margin-right: 10px;">결제 금액 : </a><a href="" style=" color: white; margin-left: 10px;margin-right: 10px;"> 세션 : 원</a>
                                 </div>
                                 &nbsp;&nbsp;
                                 <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;">
-                                        <a  href="" style=" color: white; margin-left: 10px;margin-right: 10px;">예약하기 ></a >
+                                        <a  href="${pageContext.request.contextPath}/reservation/Reservation.re" style=" color: white; margin-left: 10px;margin-right: 10px;">예약하기 ></a >
                                 </div>
                             </div>                         
                            
@@ -207,8 +226,9 @@
                    </div> <br><br><br>
           </div>
         </section>
-          
-     
+<%--           <%=r_price %><%=r_type %><%=r_id%><%=checkin_date %><%=checkout_date %> --%>
+
+     		
      <%@ include file="/header_footer/footer.jsp" %>
  
     <!-- **** All JS Files ***** -->
