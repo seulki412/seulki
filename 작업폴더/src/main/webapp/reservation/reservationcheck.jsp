@@ -8,13 +8,14 @@
 <%
 String r_price = request.getParameter("r_price");
 String r_type = request.getParameter("r_type");
-String r_id = request.getParameter("r_id");
-String checkin_date = request.getParameter("checkin_date");
-String checkout_date = request.getParameter("checkout_date");
+// session.setAttribute("r_price",r_price);
+// session.setAttribute("r_type", r_type);
 
-
-	
-session.getAttribute("param");
+String checkin_date = (String)session.getAttribute("checkin_date");
+String checkout_date = (String)session.getAttribute("checkout_date");
+String room = (String)session.getAttribute("room");
+String adults = (String)session.getAttribute("adults");
+String children = (String)session.getAttribute("children");
 
 
 %>
@@ -41,7 +42,7 @@ session.getAttribute("param");
 
 <body>
      <%@ include file="/header_footer/header.jsp" %>
-     
+     <% session = request.getSession(); %>
      
       <!-- Breadcrumb Area Start -->
     <div class="breadcrumb-area contact-breadcrumb bg-img bg-overlay jarallax" style="background-image: url(../image/그랜드1.jpg);">
@@ -213,15 +214,30 @@ session.getAttribute("param");
                                     <a  href="" style=" color: white; margin-left: 10px;margin-right: 10px;">< 문의하기</a>
                                 </div>
                                 &nbsp;&nbsp;
+                              <c:forEach var="items" items="${sessionScope.param }">
+                              	<c:forEach var="item" items="items.key">
+                              		<c:out value="${param[item].value }"/>
+                              	 </c:forEach>
+                              </c:forEach>
                                 <div style="display: inline-block;background-color: #524b42;width: auto; height: 50px;">
-                                        <a href="" style=" color: white; margin-left: 10px;margin-right: 10px;">결제 금액 : </a><a href="" style=" color: white; margin-left: 10px;margin-right: 10px;"> 세션 : 원</a>
+                                        <a href="" style=" color: white; margin-left: 10px;margin-right: 10px;">결제 금액 : </a><a href="" style=" color: white; margin-left: 10px;margin-right: 10px;"> <%=checkin_date %> 원</a>
                                 </div>
+                               
                                 &nbsp;&nbsp;
                                 <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;">
-                                        <a  href="${pageContext.request.contextPath}/reservation/Reservation.re" style=" color: white; margin-left: 10px;margin-right: 10px;">예약하기 ></a >
+                                     <form action="${pageContext.request.contextPath}/reservation/Reservation.re" method="post">
+                                              <input type="hidden" name="세션 값" class="체크인데이">
+                                              <input type="hidden" name="세션 값" class="체크아웃">
+                                              <input type="hidden" name="세션 값" class="어덜트">
+                                              <input type="hidden" name="세션 값" class="키즈">
+                                              <input type="hidden" name="세션 값" class="룸타입">
+                                              <input type="hidden" name="세션 값" class="가격">
+                                              <input type="hidden" name="세션 값" class="유저아이디">
+                                              <button type="submit" style="display: inline;color: white;background-color: #524b42; margin-left: ;margin-right: ;border:0;">예약하기 ></button>
+
+                                      </form>
                                 </div>
-                            </div>                         
-                           
+                            </div>
                        </div>
                    </div> <br><br><br>
           </div>

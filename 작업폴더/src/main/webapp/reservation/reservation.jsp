@@ -16,7 +16,9 @@ Calendar cal = Calendar.getInstance();
 String format = "yyyy-mm-dd";
 cal.add(cal.DATE, +1);
 String tomorrow = simpledateformat.format(cal.getTime());
-session.setAttribute("param", "${requestScope.param }");
+
+
+
 
 %>
 <!DOCTYPE html>

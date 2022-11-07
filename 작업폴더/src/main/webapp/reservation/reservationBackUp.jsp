@@ -17,6 +17,7 @@ String format = "yyyy-mm-dd";
 cal.add(cal.DATE, +1);
 String tomorrow = simpledateformat.format(cal.getTime());
 
+
 %>
 <!DOCTYPE html>
 <html lang="en">
