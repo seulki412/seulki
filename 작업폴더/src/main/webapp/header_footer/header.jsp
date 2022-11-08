@@ -1,10 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+    <%String u_id = (String)session.getAttribute("u_id");
+    String login = "";
+    if (u_id != null ){
+    	login = "<a href=../login/myinfo.jsp style=background-color:#f1e3c4;color:#524b42;>내 정보 </a>|";	
+    } else{
+    	login = "<a href=../login/login.jsp style=background-color:#f1e3c4;color:#524b42;>로그인 </a>|";
+    }
+    
+    String join = "";
+    if (u_id != null ){
+    	join = "<a href=../login/logout.jsp style=background-color:#f1e3c4;color:#524b42;>로그아웃</a>";	
+    } else{
+    	join = "<a href=../join/join.jsp style=background-color:#f1e3c4;color:#524b42;>회원가입 </a>";
+    }
+    %>
+ 
     <!-- Preloader -->
-<!--     <div id="preloader" style="background-color: #f1ebd6;"> -->
-<!--         <div class="loader"></div> -->
-<!--     </div> -->
+    <div id="preloader" style="background-color: #f1ebd6;">
+        <div class="loader"></div>
+    </div>
     <!-- /Preloader -->
 
     <!-- Header Area Start -->
@@ -68,8 +84,8 @@
                                    <a href="../inquiry/inquiry.jsp" style="background-color: #f1e3c4;color: #524b42;">문의하기</a>|                          
                                    <a href="../location/location.jsp" style="background-color: #f1e3c4;color: #524b42;">위치찾기</a>|                          
                                     <a href="../reservation/reservation.jsp" style="background-color: #f1e3c4;color: #524b42;">예약 </a>|                              
-                                    <a href="../login/login.jsp" style="background-color: #f1e3c4;color: #524b42;">로그인 </a>|
-                                    <a href="../join/join.jsp" style="background-color: #f1e3c4;color: #524b42;">회원가입 </a>
+                                    <%=login %>
+                                    <%=join %>
                                 </div>
                                
                             </div>

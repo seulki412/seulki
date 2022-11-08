@@ -8,16 +8,7 @@
 <%
 String r_price = request.getParameter("r_price");
 String r_type = request.getParameter("r_type");
-// session.setAttribute("r_price",r_price);
-// session.setAttribute("r_type", r_type);
-
-String checkin_date = (String)session.getAttribute("checkin_date");
-String checkout_date = (String)session.getAttribute("checkout_date");
-String room = (String)session.getAttribute("room");
-String adults = (String)session.getAttribute("adults");
-String children = (String)session.getAttribute("children");
-
-
+String r_id = request.getParameter("r_id");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,6 +34,11 @@ String children = (String)session.getAttribute("children");
 <body>
      <%@ include file="/header_footer/header.jsp" %>
      <% session = request.getSession(); %>
+     <c:set var="checkin_date" value="${sessionScope.checkin_date}"/>
+     <c:set var="checkout_date" value="${sessionScope.checkout_date}"/>
+     <c:set var="room" value="${sessionScope.room}"/>
+     <c:set var="adults" value="${sessionScope.adults}"/>
+     <c:set var="children" value="${sessionScope.children}"/>
      
       <!-- Breadcrumb Area Start -->
     <div class="breadcrumb-area contact-breadcrumb bg-img bg-overlay jarallax" style="background-image: url(../image/그랜드1.jpg);">
@@ -214,25 +210,22 @@ String children = (String)session.getAttribute("children");
                                     <a  href="" style=" color: white; margin-left: 10px;margin-right: 10px;">< 문의하기</a>
                                 </div>
                                 &nbsp;&nbsp;
-                              <c:forEach var="items" items="${sessionScope.param }">
-                              	<c:forEach var="item" items="items.key">
-                              		<c:out value="${param[item].value }"/>
-                              	 </c:forEach>
-                              </c:forEach>
+                       
                                 <div style="display: inline-block;background-color: #524b42;width: auto; height: 50px;">
-                                        <a href="" style=" color: white; margin-left: 10px;margin-right: 10px;">결제 금액 : </a><a href="" style=" color: white; margin-left: 10px;margin-right: 10px;"> <%=checkin_date %> 원</a>
+                                        <a href="" style=" color: white; margin-left: 10px;margin-right: 10px;">결제 금액 : </a><a href="" style=" color: white; margin-left: 10px;margin-right: 10px;"> <%=r_price %> 원</a>
                                 </div>
                                
                                 &nbsp;&nbsp;
                                 <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;">
-                                     <form action="${pageContext.request.contextPath}/reservation/Reservation.re" method="post">
-                                              <input type="hidden" name="세션 값" class="체크인데이">
-                                              <input type="hidden" name="세션 값" class="체크아웃">
-                                              <input type="hidden" name="세션 값" class="어덜트">
-                                              <input type="hidden" name="세션 값" class="키즈">
-                                              <input type="hidden" name="세션 값" class="룸타입">
-                                              <input type="hidden" name="세션 값" class="가격">
-                                              <input type="hidden" name="세션 값" class="유저아이디">
+                                     <form action="${pageContext.request.contextPath}/reservation/DoReservation.re" method="GET">
+                                              <input type="hidden" name="checkin_date" class="체크인데이" value="${checkin_date }">
+                                              <input type="hidden" name="checkout_date" class="체크아웃" value="${checkout_date }">
+                                              <input type="hidden" name="room" class="어덜트" value="${room }">
+                                              <input type="hidden" name="adults" class="키즈" value="${adults }">
+                                              <input type="hidden" name="children" class="룸타입" value="${children }">
+                                              <input type="hidden" name="r_price" class="가격" value="<%=r_price %>">
+                                              <input type="hidden" name="r_type" class="유저아이디" value="<%=r_type %>">
+                                              <input type="hidden" name="r_id" class="유저아이디" value="<%=r_id %>">
                                               <button type="submit" style="display: inline;color: white;background-color: #524b42; margin-left: ;margin-right: ;border:0;">예약하기 ></button>
 
                                       </form>

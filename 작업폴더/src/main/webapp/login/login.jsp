@@ -50,9 +50,9 @@
          사이트에 오신 것을 환영합니다. <br>
          로그인 아이디와 비밀번호를 입력해 주시기 바랍니다.
         <br>
-        <form action="" method="post" class="login-form">                            
-                    아이디<input type="text" placeholder="아이디를 입력하세요">
-                    비밀번호<input type="password" placeholder="비밀번호를 입력하세요">                
+        <form action="${pageContext.request.contextPath}/user/UserLoginOk.us" method="post" class="login-form">                            
+                    아이디<input type="text" name="u_id" placeholder="아이디를 입력하세요">
+                    비밀번호<input type="password" name="u_password" placeholder="비밀번호를 입력하세요">                
                 <label for="remember-check">
                     <input type="checkbox">아이디 저장하기
                 </label>
@@ -60,7 +60,6 @@
                     <input type="button" value="회원가입" onclick="location.href='join.html'">               
         </form>
     </div>
-
 
     <br>
    

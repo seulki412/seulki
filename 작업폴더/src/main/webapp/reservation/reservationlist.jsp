@@ -85,18 +85,18 @@
 
                                     <%-- 반복분 돌릴 구간--%>
                                     <tr style="height: 40px;">
-                                    <form action="${pageContext.request.contextPath }/reservation/ReservationCancel.re" method="POST">
-                                        <td>1</td>
-                                        <td>예약번호</td>
-                                        <td>2</td>
-                                        <td>0</td>
-                                        <td>2022-11-15</td>
-                                        <td>2022-11-16</td>
-                                        <td>스탠다드</td>
-                                        <td>100,000</td>
-                                        <td>2022-11-08</td>
-                                        <td><button type='submit' style="margin-left:5px;margin-right: 5px;width:auto;background-color: #524b42;color: white;border:0px;padding:5px;padding-left:10px;padding-right:10px;">예약 취소</button></td>
-                                   </form>
+	                                    <form action="${pageContext.request.contextPath }/reservation/ReservationCancel.re" method="POST">
+	                                        <td>1</td>
+	                                        <td name="resnum">예약번호</td>
+	                                        <td>2</td>
+	                                        <td>0</td>
+	                                        <td >2022-11-15</td>
+	                                        <td >2022-11-16</td>
+	                                        <td>스탠다드</td>
+	                                        <td>100,000</td>
+	                                        <td>2022-11-08</td>
+	                                        <td><button type='submit' style="margin-left:5px;margin-right: 5px;width:auto;background-color: #524b42;color: white;border:0px;padding:5px;padding-left:10px;padding-right:10px;">예약 취소</button></td>
+	                                   </form>
                                     </tr>
                                     <%-- 반복분 돌릴 구간--%>
                                     

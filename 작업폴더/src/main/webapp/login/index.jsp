@@ -22,7 +22,7 @@
 
 <body>
     <%@ include file="/header_footer/header.jsp" %>
-    
+
     <!-- Welcome Area Start -->
     <section class="welcome-area">
         <div class="welcome-slides owl-carousel">

@@ -18,4 +18,8 @@
 <!-- 		INSERT INTO RESERVATION  -->
 <!-- 		VALUES (board_seq.nextval, 'insert1', #{res_adults}, #{res_kids}, #{res_checkin}, #{res_checkout}, #{res_rtype}, #{res_price}, sysdate, 1, 'N') -->
 <!-- 	</insert> -->
+
+	<delete id="res_delete" parameterType="_int">
+		
+	</delete>
 </mapper>

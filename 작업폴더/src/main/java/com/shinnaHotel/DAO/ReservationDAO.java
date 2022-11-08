@@ -32,6 +32,16 @@ public class ReservationDAO {
 		return roomArr;
 	}
 	
+	public boolean res_cancel(int res_number) {
+		boolean result = false;
+		
+		if(sqlSession.update("Reservation.res_cancel", res_number) != 0) {
+			result = true;
+		}
+		
+		return result;	
+	}
+	
 //	public boolean insertReservation(ReservationDTO rdto) {
 //		boolean result = false;
 //		
