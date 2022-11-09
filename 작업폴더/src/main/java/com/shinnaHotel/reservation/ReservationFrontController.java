@@ -40,7 +40,7 @@ public class ReservationFrontController extends HttpServlet{
 			case "/reservation/DoReservation.re" :
 				forward = new DoReservationAction().execute(req, resp);
 				break;
-			// 예약 취소하기 요청
+			// 예약 취소하기 시 취소테이블 insert, 예약테이블 delete
 			case "/reservation/ReservationCancel.re" :
 				forward = new ReservationCancelAction().execute(req, resp);
 				break;

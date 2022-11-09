@@ -1,5 +1,19 @@
+<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+Date today = new Date();
+SimpleDateFormat simpledateformat = new SimpleDateFormat("yyyy-MM-dd");
+String now = simpledateformat.format(today);
+
+Calendar cal = Calendar.getInstance();
+String format = "yyyy-mm-dd";
+cal.add(cal.DATE, +1);
+String tomorrow = simpledateformat.format(cal.getTime());
+
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -92,16 +106,16 @@
         <div class="hotel-search-form-area">
             <div class="container-fluid">
                 <div class="hotel-search-form">
-                    <form action="#" method="post">
+                    <form action="${pageContext.request.contextPath }/reservation/RoomSearch.re" method="post">
                         <p>날짜, 인원 선택</p>
                         <div class="row justify-content-between align-items-end">
                             <div class="col-6 col-md-2 col-lg-3">
                                 <label for="checkIn">체크인</label>
-                                <input type="date" class="form-control" id="checkIn" name="checkin-date">
+                                <input type="date" class="form-control" id="checkIn" name="checkin_date" min='<%=now%>'>
                             </div>
                             <div class="col-6 col-md-2 col-lg-3">
                                 <label for="checkOut">체크아웃</label>
-                                <input type="date" class="form-control" id="checkOut" name="checkout-date">
+                                <input type="date" class="form-control" id="checkOut" name="checkout_date" min='<%=tomorrow%>'>
                             </div>
                             <div class="col-4 col-md-1">
                                 <label for="room">객실</label>
@@ -109,9 +123,6 @@
                                     <option value="01">01</option>
                                     <option value="02">02</option>
                                     <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="06">06</option>
                                 </select>
                             </div>
                             <div class="col-4 col-md-1">
@@ -120,9 +131,6 @@
                                     <option value="01">01</option>
                                     <option value="02">02</option>
                                     <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="06">06</option>
                                 </select>
                             </div>
                             <div class="col-4 col-md-2 col-lg-1">
@@ -131,9 +139,6 @@
                                     <option value="01">01</option>
                                     <option value="02">02</option>
                                     <option value="03">03</option>
-                                    <option value="04">04</option>
-                                    <option value="05">05</option>
-                                    <option value="06">06</option>
                                 </select>
                             </div>
                             <div class="col-12 col-md-3">

@@ -8,13 +8,15 @@ public class ReservationDTO {
 	private String u_id;			// 예약한 회원 아이디
 	private int res_adults;			// 예약한 성인 수
 	private int res_kids;			// 예약한 아동 수
-	private Date res_checkin;		// 체크인 날짜
-	private Date res_checkout;		// 체크아웃 날짜
+	private String res_checkin;		// 체크인 날짜
+	private String res_checkout;		// 체크아웃 날짜
 	private String res_rtype;		// 예약한 룸 종류
 	private int res_price;			// 가격
 	private String res_time;		// 예약 일자
 	private int r_id;				// 예약한 룸 호수
 	private String res_cancel;		// 예약 취소 여부
+	
+	
 	public int getRes_number() {
 		return res_number;
 	}
@@ -39,16 +41,16 @@ public class ReservationDTO {
 	public void setRes_kids(int res_kids) {
 		this.res_kids = res_kids;
 	}
-	public Date getRes_checkin() {
+	public String getRes_checkin() {
 		return res_checkin;
 	}
-	public void setRes_checkin(Date res_checkin) {
+	public void setRes_checkin(String res_checkin) {
 		this.res_checkin = res_checkin;
 	}
-	public Date getRes_checkout() {
+	public String getRes_checkout() {
 		return res_checkout;
 	}
-	public void setRes_checkout(Date res_checkout) {
+	public void setRes_checkout(String res_checkout) {
 		this.res_checkout = res_checkout;
 	}
 	public String getRes_rtype() {

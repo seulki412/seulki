@@ -18,7 +18,7 @@
 <body>
 
     <%@ include file="/header_footer/header.jsp" %>
- 
+ 	<c:set var="reservationlist" value="${requestScope.reservationlist }"/>
   
     <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(../image/R0000001PC6L_KR.jpg);">
         <div class="container h-100">
@@ -70,7 +70,6 @@
                         <div>
                             <table class="col-12" style="text-align: center;">
                                 <thead style="background-color: #f1e3c4;height: 70px;border-top: #524b42;" >                            
-                                    <th>NO.</th>
                                     <th>예약번호</th>
                                     <th>성인</th>
                                     <th>어린이</th>
@@ -84,20 +83,25 @@
                                 <tbody>
 
                                     <%-- 반복분 돌릴 구간--%>
-                                    <tr style="height: 40px;">
-	                                    <form action="${pageContext.request.contextPath }/reservation/ReservationCancel.re" method="POST">
-	                                        <td>1</td>
-	                                        <td name="resnum">예약번호</td>
-	                                        <td>2</td>
-	                                        <td>0</td>
-	                                        <td >2022-11-15</td>
-	                                        <td >2022-11-16</td>
-	                                        <td>스탠다드</td>
-	                                        <td>100,000</td>
-	                                        <td>2022-11-08</td>
-	                                        <td><button type='submit' style="margin-left:5px;margin-right: 5px;width:auto;background-color: #524b42;color: white;border:0px;padding:5px;padding-left:10px;padding-right:10px;">예약 취소</button></td>
-	                                   </form>
-                                    </tr>
+                                    <c:choose>
+                                    	<c:when test="${reservationlist != null and fn:length(reservationlist) > 0 }">
+			                                 <c:forEach var="reservation" items="${reservationlist }">
+				                                    <tr style="height: 40px;">
+					                                    <form action="${pageContext.request.contextPath }/reservation/ReservationCancel.re?res_number=${reservation.res_number }&res_price=${reservation.res_price }" method="POST">
+					                                        <td name="res_number">${reservation.res_number }</td>
+					                                        <td>${reservation.res_adults }</td>
+					                                        <td>${reservation.res_kids }</td>
+					                                        <td name="res_checkin">${reservation.res_checkin }</td>
+					                                        <td name="res_checkout">${reservation.res_checkout }</td>
+					                                        <td name="res_rtype">${reservation.res_rtype }</td>
+					                                        <td name="res_price">${reservation.res_price }</td>
+					                                        <td>${reservation.res_time}</td>
+					                                        <td><button type='submit' style="margin-left:5px;margin-right: 5px;width:auto;background-color: #524b42;color: white;border:0px;padding:5px;padding-left:10px;padding-right:10px;">예약 취소</button></td>
+					                                   </form>
+				                                    </tr>
+			                                  </c:forEach>
+	                                    </c:when>
+                                    </c:choose>
                                     <%-- 반복분 돌릴 구간--%>
                                     
                                 </tbody>

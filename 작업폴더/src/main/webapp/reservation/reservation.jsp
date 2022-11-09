@@ -59,7 +59,7 @@ String tomorrow = simpledateformat.format(cal.getTime());
 	<div class="hotel-search-form-area">
 		<div class="container-fluid">
 			<div class="hotel-search-form">
-				<form action="${pageContext.request.contextPath }/reservation/RoomSearch.re" method="post">
+				<form action="${pageContext.request.contextPath }/reservation/RoomSearch.re" method="GET">
 					<p>날짜, 인원 선택</p>
 					<div class="row justify-content-between align-items-end">
 						<div class="col-6 col-md-2 col-lg-3">
@@ -171,7 +171,7 @@ String tomorrow = simpledateformat.format(cal.getTime());
 					
 					<div class="col-12 col-lg-4">
 						<%--Hotel Reservation Area  --%>
-						${param }
+						
 					</div>
 				</div>
 			</div>

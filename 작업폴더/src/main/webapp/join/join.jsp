@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -22,7 +23,6 @@
 </head>
 <body>
      <%@ include file="/header_footer/header.jsp" %>
-     
      
      <!-- Breadcrumb Area Start -->
      <div class="breadcrumb-area bg-img bg-overlay jarallax">
@@ -44,31 +44,45 @@
     </div>
  <!-- 헤더 끝-->
  <br>
+ 
  <div style="margin: auto; " class="login-wrapper">
     <h2>회원가입</h2>
      회원 정보 입력
-    <br>
-    <form action="" method="post" class="login-form">                            
+    <br>																		<!-- 유효성 검사 결과 리턴-->
+    <form action="${pageContext.request.contextPath }/user/UserJoin.us" method="post" class="login-form" onsubmit="return sendit();">                            
         <p>        
-            <div>이름</div> <input type="text" placeholder="이름을 입력하세요">                
+            <div>이름</div> <input type="text"  name="u_name"  placeholder="이름을 입력하세요">                
         </p>
         <p>
-            <div>ID</div> <input type="text" placeholder="ID를 입력하세요">
+            <div>ID</div> <input type="text"  name="u_id"  placeholder="ID를 입력하세요">
         </p> 
         <p>
-            <div>비밀번호</div> <input type="password" placeholder="비밀번호를 입력하세요">                
+            <div>비밀번호</div> <input type="password"  name="u_password"   placeholder="비밀번호를 입력하세요">                
         </p> 
         <p>
-            <div>비밀번호 확인</div> <input type="password" placeholder="비밀번호를 확인해주세요">                
+            <div>비밀번호 확인</div> <input type="password"  name="u_password2"   placeholder="비밀번호를 확인해주세요">                
         </p>
         <p>
-            <div>휴대폰 번호</div> <input type="text" placeholder="휴대폰 번호를 입력하세요.">                
+            <div>휴대폰 번호</div> <input type="text"  name="u_phone"   placeholder="휴대폰 번호를 입력하세요.">                
         </p> 
         <p>
-            <div>이메일</div> <input type="text" placeholder="이메일을 입력하세요.">                
+            <div>이메일</div> <input type="text"  name="u_email"  placeholder="이메일을 입력하세요.">                
         </p>                      
             <input type="submit" value="회원가입">               
     </form>
+   	<script>
+		const login-form = document.login-form
+	
+		function sendit() {
+			// 이름이 입력되지 않았다면
+			const u_name = login-form.u_name
+			if (u_name.value == "") {
+				alert("이름을 입력해주세요") // alert 으로 경고
+				u_id.focus();    // 아이디 입력창으로 포커스
+				return false;
+		  }
+		}
+	</script>
 </div>
 
 <br>

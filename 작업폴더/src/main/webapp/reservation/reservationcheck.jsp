@@ -218,14 +218,14 @@ String r_id = request.getParameter("r_id");
                                 &nbsp;&nbsp;
                                 <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;">
                                      <form action="${pageContext.request.contextPath}/reservation/DoReservation.re" method="GET">
-                                              <input type="hidden" name="checkin_date" class="체크인데이" value="${checkin_date }">
-                                              <input type="hidden" name="checkout_date" class="체크아웃" value="${checkout_date }">
-                                              <input type="hidden" name="room" class="어덜트" value="${room }">
-                                              <input type="hidden" name="adults" class="키즈" value="${adults }">
-                                              <input type="hidden" name="children" class="룸타입" value="${children }">
-                                              <input type="hidden" name="r_price" class="가격" value="<%=r_price %>">
-                                              <input type="hidden" name="r_type" class="유저아이디" value="<%=r_type %>">
-                                              <input type="hidden" name="r_id" class="유저아이디" value="<%=r_id %>">
+                                              <input type="hidden" name="checkin_date"  value="${checkin_date }">
+                                              <input type="hidden" name="checkout_date"  value="${checkout_date }">
+                                              <input type="hidden" name="room"  value="${room }">
+                                              <input type="hidden" name="adults"  value="${adults }">
+                                              <input type="hidden" name="children"  value="${children }">
+                                              <input type="hidden" name="r_price"  value="<%=r_price %>">
+                                              <input type="hidden" name="r_type"  value="<%=r_type %>">
+                                              <input type="hidden" name="r_id"  value="<%=r_id %>">
                                               <button type="submit" style="display: inline;color: white;background-color: #524b42; margin-left: ;margin-right: ;border:0;">예약하기 ></button>
 
                                       </form>
