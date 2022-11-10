@@ -20,7 +20,7 @@
 	</insert>
 	
 	<select id="selectReservation" parameterType="String" resultType="reservationdto">
-		SELECT * FROM RESERVATION WHERE u_id = #{u_id}
+      	SELECT * FROM RESERVATION WHERE u_id = #{u_id} AND RES_CHECKIN != 'null'
 	</select>
 	
 	<insert id="insertResCancel" parameterType="rescanceldto">
@@ -28,8 +28,8 @@
 		VALUES (#{res_number}, #{u_id}, #{res_checkin}, #{res_checkout} , #{res_rtype}, #{res_price},  sysdate )
 	
 	</insert>
-
-	<delete id="deleteReservation" parameterType="_int">
-		DELETE FROM reservation WHERE res_number = #{res_number}
-	</delete>
+	
+	<update id="updateReservation" parameterType="_int">
+		UPDATE RESERVATION SET RES_CHECKIN = 'null', RES_CHECKOUT ='null' WHERE RES_NUMBER = #{res_number}
+	</update>
 </mapper>

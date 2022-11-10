@@ -1,6 +1,9 @@
 package com.shinnaHotel.reservation;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
@@ -28,18 +31,32 @@ public class RoomSearchAction implements Action{
 		
 //		List<String> datas = new ArrayList<>();
 		Map<String, Object> param = new HashMap<>();
+		String checkin_date = req.getParameter("checkin_date");
+		String checkout_date = req.getParameter("checkout_date");
 		
-		
-		param.put("checkin_date", req.getParameter("checkin_date"));
-		param.put("checkout_date", req.getParameter("checkout_date"));
+		param.put("checkin_date", checkin_date);
+		param.put("checkout_date", checkout_date);
 		param.put("room", req.getParameter("room"));
 		param.put("adults", req.getParameter("adults"));
 		param.put("children", req.getParameter("children"));
 
+		String  str = "yyyy-MM-dd";
+		SimpleDateFormat sdf = new SimpleDateFormat(str);
+		long diffday = 0;
+		try {
+			Date checkin = sdf.parse(checkin_date);
+			Date checkout = sdf.parse(checkout_date);
+			
+			diffday = (checkout .getTime() - checkin.getTime()) / (24*60*60*1000);
 		
+		} catch (ParseException e) {
+			System.err.println("ReservationRoomServlet - doGet() err : " + e.getMessage());
+		}
+		
+		req.setAttribute("diffday", diffday);
 		req.setAttribute("RoomList", rdao.searchRoom(param));
 		HttpSession session = req.getSession();
-		
+
 		session.setAttribute("checkin_date", req.getParameter("checkin_date"));
 		session.setAttribute("checkout_date", req.getParameter("checkout_date"));
 		session.setAttribute("room", req.getParameter("room"));

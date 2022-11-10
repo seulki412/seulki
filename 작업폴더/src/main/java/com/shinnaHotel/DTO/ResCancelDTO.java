@@ -9,7 +9,7 @@ public class ResCancelDTO {
 	private String res_checkout;
 	private String res_rtype;
 	private int res_price;
-	private Date cancel_date;
+	private String cancel_date;
 	
 	
 	public int getRes_number() {
@@ -48,12 +48,15 @@ public class ResCancelDTO {
 	public void setRes_price(int res_price) {
 		this.res_price = res_price;
 	}
-	public Date getCancel_date() {
+	public String getCancel_date() {
 		return cancel_date;
 	}
-	public void setCancel_date(Date cancel_date) {
+	public void setCancel_date(String cancel_date) {
 		this.cancel_date = cancel_date;
 	}
+	
+	
+	
 	
 	
 	

@@ -6,9 +6,10 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%
-String r_price = request.getParameter("r_price");
+int r_price = Integer.parseInt(request.getParameter("r_price"));
 String r_type = request.getParameter("r_type");
 String r_id = request.getParameter("r_id");
+int diffday = Integer.parseInt(request.getParameter("diffday"));
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -212,7 +213,7 @@ String r_id = request.getParameter("r_id");
                                 &nbsp;&nbsp;
                        
                                 <div style="display: inline-block;background-color: #524b42;width: auto; height: 50px;">
-                                        <a href="" style=" color: white; margin-left: 10px;margin-right: 10px;">결제 금액 : </a><a href="" style=" color: white; margin-left: 10px;margin-right: 10px;"> <%=r_price %> 원</a>
+                                        <a href="" style=" color: white; margin-left: 10px;margin-right: 10px;">결제 금액 : </a><a href="" style=" color: white; margin-left: 10px;margin-right: 10px;"> <%=r_price * diffday %> 원</a>
                                 </div>
                                
                                 &nbsp;&nbsp;

@@ -26,22 +26,26 @@ public class ReservationCancelAction implements Action{
 		int res_number = Integer.parseInt(req.getParameter("res_number"));
 		
 		HttpSession session = req.getSession();	
-		
-		
+		System.out.println(res_number);
+		System.out.println((String)session.getAttribute("u_id"));
+		System.out.println(req.getParameter("res_checkin"));
+		System.out.println(req.getParameter("res_checkout"));
+		System.out.println(req.getParameter("res_rtype"));
+		System.out.println(Integer.parseInt(req.getParameter("res_price")));
 		// 예약취소 테이블 insert
 		
 			rcdto.setU_id((String)session.getAttribute("u_id"));
 			rcdto.setRes_number(res_number);
-			rcdto.setRes_checkin((req.getParameter("res_checkin")));
-			rcdto.setRes_checkin((req.getParameter("res_checkout")));
+			rcdto.setRes_checkin(req.getParameter("res_checkin"));
+			rcdto.setRes_checkout(req.getParameter("res_checkout"));
 			rcdto.setRes_rtype(req.getParameter("res_rtype"));
 			rcdto.setRes_price(Integer.parseInt(req.getParameter("res_price")));
 	
-		
+			
 		// 예약 취소테이블 insert
 		if(rdao.insertResCancel(rcdto)) {
 			// 예약테이블 delete
-			rdao.deleteReservation(res_number);
+			rdao.updateReservation(res_number);
 			forward.setRedirect(false);
 			forward.setPath(req.getContextPath()+"/reservation/ReservationSelect.re");
 		}

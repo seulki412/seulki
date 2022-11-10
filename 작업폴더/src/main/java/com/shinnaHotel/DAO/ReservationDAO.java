@@ -63,10 +63,10 @@ public class ReservationDAO {
 	}
 
 
-	public boolean deleteReservation(int res_number) {
+	public boolean updateReservation(int res_number) {
 		boolean result = false;
 		
-		if(sqlSession.delete("Reservation.deleteReservation") != 0) {
+		if(sqlSession.delete("Reservation.updateReservation", res_number) != 0) {
 			result = true;
 		}
 		return result;

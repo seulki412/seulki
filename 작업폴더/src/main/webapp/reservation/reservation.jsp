@@ -36,6 +36,7 @@ String tomorrow = simpledateformat.format(cal.getTime());
 	<%@ include file="/header_footer/header.jsp"%>
 	<c:set var="RoomList" value="${requestScope.RoomList }" />
 	<c:set var="param" value="${requestScope.param }" />
+	<c:set var="diffday" value="${requestScope.diffday }"/>
 	<%--Breadcrumb Area Start  --%>
 	<div class="breadcrumb-area bg-img bg-overlay jarallax"	style="background-image: url(img/bg-img/16.jpg);">
 		<div class="container h-100">
@@ -76,7 +77,6 @@ String tomorrow = simpledateformat.format(cal.getTime());
 								<option value="01">01</option>
 								<option value="02">02</option>
 								<option value="03">03</option>
-								
 							</select>
 						</div>
 						<div class="col-4 col-md-1">
@@ -84,8 +84,6 @@ String tomorrow = simpledateformat.format(cal.getTime());
 								<select name="adults" id="adults" class="form-control">
 								<option value="01">01</option>
 								<option value="02">02</option>
-								<option value="03">03</option>
-
 							</select>
 						</div>
 						<div class="col-4 col-md-2 col-lg-1">
@@ -97,7 +95,7 @@ String tomorrow = simpledateformat.format(cal.getTime());
 							</select>
 						</div>
 						<div class="col-12 col-md-3">
-							<button type="submit" class="form-control btn roberto-btn w-100" style="background-color: #f1e3c4; color: #524b42;">검색</button>
+							<button type="submit" class="form-control btn roberto-btn w-100" style="background-color: #f1e3c4; color: #524b42;" onclick="search()">검색</button>
 						</div>
 					</div>
 				</form>
@@ -124,8 +122,9 @@ String tomorrow = simpledateformat.format(cal.getTime());
 										<%--Room Content  --%>
 										<div class="room-content" style="width: 300px;">
 											<h2>${room.r_type }</h2>
+										
 											<h4>
-												${room.r_price } <span>/ 1박</span>
+												${room.r_price * diffday }  <span>/ 1박</span>
 											</h4>
 											<div class="room-feature">
 												<h6>
@@ -136,6 +135,7 @@ String tomorrow = simpledateformat.format(cal.getTime());
 												</h6>
 												<h6>
 													Bed: <span>더블, 트윈</span>
+													일수: <span>${diffday }</span>
 												</h6>
 												<h6>
 													전망: <span>시티 뷰</span>
@@ -152,7 +152,7 @@ String tomorrow = simpledateformat.format(cal.getTime());
 											
 			
 												<div class="form-group" style="text-align: right;">
-			 										<a class="resmain" href="reservationcheck.jsp?r_price=${room.r_price }&r_type=${room.r_type }&r_id=${room.r_id }">예약</a> 
+			 										<a class="resmain" href="reservationcheck.jsp?r_price=${room.r_price }&r_type=${room.r_type }&r_id=${room.r_id }&diffday=${diffday}" onclick="reservation()">예약</a> 
 												<%-- <button type="submit" class="btn roberto-btn w-100">예약</button>  --%>
 												</div>
 											
@@ -160,10 +160,15 @@ String tomorrow = simpledateformat.format(cal.getTime());
 									</div>
 								</c:forEach>					
 							</c:when>
+							<c:when test="${fn:length(RoomList) == 0 }">
+								<div style="margin-top: 50px;margin-bottom: 130px;">
+						   	     <p style="text-align: center;font-size: 30px;color: #524b42;">예약을 원하시는 날짜, 인원을 선택하세요. </p>
+						    	</div>
+							</c:when>
 						<%--게시물이 없는 경우 --%>
 							<c:otherwise>
 								<div style="margin-top: 50px;margin-bottom: 130px;">
-						   	     <p style="text-align: center;font-size: 30px;color: #524b42;">예약을 원하시는 호텔, 날짜, 인원을 선택하세요.</p>
+						   	     <p style="text-align: center;font-size: 30px;color: #524b42;">예약 가능한 객실이 없습니다.</p>
 						    	</div>
 							</c:otherwise>					
 						</c:choose>	
@@ -193,6 +198,7 @@ String tomorrow = simpledateformat.format(cal.getTime());
 	<%--Active  --%>
 	<script src="../js/default-assets/active.js"></script>
 
+	<script type="text/javascript" src="reservation.js"></script>
 </body>
 
 </html>

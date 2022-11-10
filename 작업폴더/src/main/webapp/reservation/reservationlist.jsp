@@ -87,7 +87,7 @@
                                     	<c:when test="${reservationlist != null and fn:length(reservationlist) > 0 }">
 			                                 <c:forEach var="reservation" items="${reservationlist }">
 				                                    <tr style="height: 40px;">
-					                                    <form action="${pageContext.request.contextPath }/reservation/ReservationCancel.re?res_number=${reservation.res_number }&res_price=${reservation.res_price }" method="POST">
+					                                    <form action="${pageContext.request.contextPath }/reservation/ReservationCancel.re?res_number=${reservation.res_number }&res_price=${reservation.res_price }&res_checkin=${reservation.res_checkin }&res_checkout=${reservation.res_checkout }&res_rtype=${reservation.res_rtype }" method="POST">
 					                                        <td name="res_number">${reservation.res_number }</td>
 					                                        <td>${reservation.res_adults }</td>
 					                                        <td>${reservation.res_kids }</td>
@@ -101,6 +101,11 @@
 				                                    </tr>
 			                                  </c:forEach>
 	                                    </c:when>
+	                                    <c:otherwise>
+                                          <tr style="height: 40px;">
+                                             <td colspan="9" style="text-align: center; font-size:20px; color: #524b42;">예약 내역이 없습니다.</td>
+                                          </tr>
+                                       </c:otherwise>
                                     </c:choose>
                                     <%-- 반복분 돌릴 구간--%>
                                     

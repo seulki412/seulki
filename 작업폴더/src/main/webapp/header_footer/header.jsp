@@ -4,7 +4,7 @@
     <%String u_id = (String)session.getAttribute("u_id");
     String login = "";
     if (u_id != null ){
-    	login = "<a href=../login/myinfo.jsp style=background-color:#f1e3c4;color:#524b42;>내 정보 </a>|";	
+    	login = "<a href= /reservation/ReservationSelect.re    style=background-color:#f1e3c4;color:#524b42;>내 정보 </a>|";	
     } else{
     	login = "<a href=../login/login.jsp style=background-color:#f1e3c4;color:#524b42;>로그인 </a>|";
     }
