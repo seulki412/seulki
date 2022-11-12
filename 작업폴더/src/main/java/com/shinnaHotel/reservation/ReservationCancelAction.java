@@ -32,7 +32,7 @@ public class ReservationCancelAction implements Action{
 		System.out.println(req.getParameter("res_checkout"));
 		System.out.println(req.getParameter("res_rtype"));
 		System.out.println(Integer.parseInt(req.getParameter("res_price")));
-		// 예약취소 테이블 insert
+		
 		
 			rcdto.setU_id((String)session.getAttribute("u_id"));
 			rcdto.setRes_number(res_number);

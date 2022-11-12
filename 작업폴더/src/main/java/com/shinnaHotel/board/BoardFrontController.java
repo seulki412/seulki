@@ -41,6 +41,10 @@ public class BoardFrontController extends HttpServlet{
 				forward = new BoardViewAction().execute(req, resp);
 				break;
 			// 게시판 글쓰기페이지 이동요청
+			case "/board/BoardWrite.bo" :
+				forward = new ActionForward(false, "/inquiry/inquiry.jsp");
+				break;
+				
 			case "/board/BoardWriteOk.bo" :
 				forward = new BoardWriteOkAction().execute(req, resp);
 				break;
@@ -53,7 +57,7 @@ public class BoardFrontController extends HttpServlet{
 				forward = new UpdateCommentAction().execute(req, resp);
 				break;
 			// 댓글 삭제버튼 클릭시 이동요청
-			case "/board/DeleteReply.bo" :
+			case "/board/DeleteComment.bo" :
 				forward = new DeleteCommentAction().execute(req, resp);
 				break;
 			

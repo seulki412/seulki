@@ -21,8 +21,7 @@ int diffday = Integer.parseInt(request.getParameter("diffday"));
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Shinna Hotel</title>
-
+<title>Shinna Hotel - 예약</title>
     <!-- Favicon -->
     <link rel="icon" href="../image/headicon.png">
 
@@ -42,7 +41,7 @@ int diffday = Integer.parseInt(request.getParameter("diffday"));
      <c:set var="children" value="${sessionScope.children}"/>
      
       <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area contact-breadcrumb bg-img bg-overlay jarallax" style="background-image: url(../image/그랜드1.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(../image/조선객실.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -86,6 +85,8 @@ int diffday = Integer.parseInt(request.getParameter("diffday"));
         </section>
 	
            <!-- Blog Area Start -->
+<form name="paymentform" onsubmit="return doSubmit();"  action="${pageContext.request.contextPath}/reservation/DoReservation.re" method="GET">
+        
     <section class="roberto-blog-area section-padding-100-0">
         <div class="container">
             <br><br>
@@ -112,7 +113,7 @@ int diffday = Integer.parseInt(request.getParameter("diffday"));
                             <td>
                                 <div class="optionList" style="text-align:center">
                                     <div class="selectWrap4" style="text-align:center">
-                                        <select title="카드종류 선택" id="guestCardTypCd" name="guestCardTypCd" onchange="fncCardUseInfo();">
+                                        <select title="카드종류 선택" id="guestCardTypCd" name="guestCardTypCd" >
                                             <option value="">선택</option>
                                                     <option value="AX" >AMEX CARD</option>
                                                     <option value="BC" >BC CARD</option>
@@ -140,13 +141,13 @@ int diffday = Integer.parseInt(request.getParameter("diffday"));
                             </th>
                             <td>
                                 <div class="optionList">
-                                    <input type="text" id="cardNo1" class="text textResv" title="카드번호 첫번째 네 자리 입력" style="width: 71px;" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d\ ]/g, '');" value=""><!--
-                                    --><span class="hyphen">-</span><!--
-                                    --><input type="password" id="cardNo2" class="text textResv" title="카드번호 두번쨰 네 자리 입력" style="width: 71px" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d\ ]/g, '');" value=""><!--
-                                    --><span class="hyphen">-</span><!--
-                                    --><input type="password" id="cardNo3" class="text textResv" title="카드번호 세번쨰 네 자리 입력" style="width: 71px" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d\ ]/g, '');" value=""><!--
-                                    --><span class="hyphen">-</span><!--
-                                    --><input type="password" id="cardNo4" class="text textResv last" title="카드번호 마지막 네 자리 입력" style="width: 71px" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d\ ]/g, '');" value="">
+                                     <input type="text" id="cardNo1" class="text textResv" title="카드번호 첫번째 네 자리 입력" style="width: 71px;" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d\ ]/g, '');" name="cardnumber">
+                                    	<span class="hyphen">-</span>
+              						<input type="password" id="cardNo2" class="text textResv" title="카드번호 두번쨰 네 자리 입력" style="width: 71px" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d\ ]/g, '');" name="cardnumber1">
+                                    	<span class="hyphen">-</span>
+                                    <input type="password" id="cardNo3" class="text textResv" title="카드번호 세번쨰 네 자리 입력" style="width: 71px" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d\ ]/g, '');" name="cardnumber2">
+                                    	<span class="hyphen">-</span>
+                                    <input type="password" id="cardNo4" class="text textResv last" title="카드번호 마지막 네 자리 입력" style="width: 71px" maxlength="4" onkeyup="this.value=this.value.replace(/[^\d\ ]/g, '');" name="cardnumber3">
                                 </div>
                             </td>
                         </tr>
@@ -218,7 +219,7 @@ int diffday = Integer.parseInt(request.getParameter("diffday"));
                                
                                 &nbsp;&nbsp;
                                 <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;">
-                                     <form action="${pageContext.request.contextPath}/reservation/DoReservation.re" method="GET">
+                              <%--       <form action="${pageContext.request.contextPath}/reservation/DoReservation.re" method="GET">		--%>
                                               <input type="hidden" name="checkin_date"  value="${checkin_date }">
                                               <input type="hidden" name="checkout_date"  value="${checkout_date }">
                                               <input type="hidden" name="room"  value="${room }">
@@ -227,19 +228,64 @@ int diffday = Integer.parseInt(request.getParameter("diffday"));
                                               <input type="hidden" name="r_price"  value="<%=r_price %>">
                                               <input type="hidden" name="r_type"  value="<%=r_type %>">
                                               <input type="hidden" name="r_id"  value="<%=r_id %>">
+                                              <input type="hidden" name="diffday"  value="<%=diffday %>">
                                               <button type="submit" style="display: inline;color: white;background-color: #524b42; margin-left: ;margin-right: ;border:0;">예약하기 ></button>
 
-                                      </form>
+                               <%--       </form>		--%>
                                 </div>
                             </div>
                        </div>
                    </div> <br><br><br>
           </div>
         </section>
+        
+ </form>        
 <%--           <%=r_price %><%=r_type %><%=r_id%><%=checkin_date %><%=checkout_date %> --%>
 
      		
      <%@ include file="/header_footer/footer.jsp" %>
+     
+     
+     
+ <script>
+	function doSubmit(){
+		// 폼 객체
+		let frm = document.paymentform;
+		
+		// 카드 종류 선택
+		if(frm.guestCardTypCd.selectedIndex < 1){
+			alert("카드 종류를 선택해 주세요");
+			
+			return false;
+		}
+		
+		// 카드 번호 입력
+		if(frm.cardnumber.value.length == 0 ||
+			frm.cardnumber1.value.length == 0 ||
+			frm.cardnumber2.value.length == 0 ||
+			frm.cardnumber3.value.length == 0	){
+			alert('카드 번호를 입력해 주세요.');
+
+			return false;
+		} 
+
+		// 카드 유효기간		
+		if(frm.cardExprMonth.selectedIndex < 1){
+			alert("카드 유효기간을 선택해 주세요");
+			
+			return false;
+		}
+		
+		if(frm.cardExprYear.selectedIndex < 1){
+			alert("카드 유효기간을 선택해 주세요");
+			
+			return false;
+		}
+		
+	}
+		
+
+</script>
  
     <!-- **** All JS Files ***** -->
     <!-- jQuery 2.2.4 -->

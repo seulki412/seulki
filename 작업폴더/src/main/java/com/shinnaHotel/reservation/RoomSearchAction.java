@@ -56,12 +56,15 @@ public class RoomSearchAction implements Action{
 		req.setAttribute("diffday", diffday);
 		req.setAttribute("RoomList", rdao.searchRoom(param));
 		HttpSession session = req.getSession();
-
+		
+		
 		session.setAttribute("checkin_date", req.getParameter("checkin_date"));
 		session.setAttribute("checkout_date", req.getParameter("checkout_date"));
 		session.setAttribute("room", req.getParameter("room"));
-		session.setAttribute("adults", req.getParameter("adults"));
-		session.setAttribute("children", req.getParameter("children"));
+		session.setAttribute("adults", (req.getParameter("adults")));
+		session.setAttribute("children", (req.getParameter("children")));
+		System.out.println(req.getParameter("adults"));
+		System.out.println(req.getParameter("children"));
 		
 		forward.setRedirect(false);
 		forward.setPath("reservation.jsp");

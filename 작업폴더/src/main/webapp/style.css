@@ -656,16 +656,17 @@ input:focus {
   background-color: #ffffff; }
   .main-header-area .book-now-btn a {
     padding: 0 30px;
-    background-color: #524b42;
+    background-color: #f1e3c4;
     height: 80px;
     line-height: 80px;
     text-align: center;
-    color: #ffffff;
+    color: #524b42;
     font-size: 16px; }
     .main-header-area .book-now-btn a i {
       padding-left: 5px; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .main-header-area .book-now-btn a {
+      	display: block;
         height: 50px;
         line-height: 50px;
         border-radius: 30px; } }

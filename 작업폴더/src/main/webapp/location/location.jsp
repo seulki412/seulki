@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Roberto - Hotel &amp; Resort HTML Template</title>
+    <title>Shinna Hotel - 위치 찾기</title>
 
     <!-- Favicon -->
     <link rel="icon" href="./img/core-img/favicon.png">
@@ -25,7 +25,7 @@
    <%@ include file="/header_footer/header.jsp" %>
 
     <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area contact-breadcrumb bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/18.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(../image/디럭스1.jpg);">
         <div class="container">
             <div class="row">
                 <div class="col-12">

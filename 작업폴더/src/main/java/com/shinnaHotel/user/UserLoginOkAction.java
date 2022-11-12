@@ -25,8 +25,10 @@ public class UserLoginOkAction implements Action{
 		forward.setRedirect(true);
 		if(udao.login(u_id, u_password)) {
 			// 로그인 성공
+			
 			HttpSession session = req.getSession();			
 			session.setAttribute("u_id", u_id);
+			
 			forward.setPath("/login/index.jsp");
 			
 		} else {

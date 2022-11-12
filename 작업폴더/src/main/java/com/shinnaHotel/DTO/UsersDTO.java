@@ -7,9 +7,21 @@ public class UsersDTO {
 	private String u_password;		// 비밀번호
 	private String u_phone;			// 회원 핸드폰 번호
 	private String u_email;			// 회원 이메일
+	private String u_num;
+	private String u_status;
 	
-	
-	
+	public String getU_status() {
+		return u_status;
+	}
+	public void setU_status(String u_status) {
+		this.u_status = u_status;
+	}
+	public String getU_num() {
+		return u_num;
+	}
+	public void setU_num(String u_num) {
+		this.u_num = u_num;
+	}
 	public String getU_name() {
 		return u_name;
 	}

@@ -39,6 +39,23 @@ public class UserFrontController  extends HttpServlet{
 			case "/user/UserLoginOk.us" :
 				forward = new UserLoginOkAction().execute(req, resp);
 				break;
+			// 내정보 관리 페이지 이동
+			case "/user/userInfo.us" :
+				forward = new UserInfoAction().execute(req, resp);
+				break;
+			// 내정보 관리 > 내정보 수정	
+			case "/user/UserUpdate.us" :
+				forward = new UserUpdateAction().execute(req, resp);
+				break;
+			// 내정보 관리 > 회원탈퇴
+			case "/user/UserWithdraw.us" :
+				forward = new UserWithdraw().execute(req, resp);
+				break;
+			// 내정보 관리 > 회원탈퇴 > 회원탈퇴 확인
+			case "/user/UserWithdrawOk.us" :
+				forward = new UserWithdrawOkAction().execute(req, resp);
+				break;
+				
 		}
 		
 		if(forward != null) {

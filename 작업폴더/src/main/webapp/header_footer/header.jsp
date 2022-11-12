@@ -2,21 +2,27 @@
     pageEncoding="UTF-8"%>
 
     <%String u_id = (String)session.getAttribute("u_id");
-    String login = "";
+    String login = "none";
+    String info = "none";
+    String admin = "none";
     if (u_id != null ){
-    	login = "<a href= /reservation/ReservationSelect.re    style=background-color:#f1e3c4;color:#524b42;>내 정보 </a>|";	
+    	if(u_id.equals("admin")){
+    		admin = "";
+    	} else{    		
+    		info = "";	
+    	}
     } else{
-    	login = "<a href=../login/login.jsp style=background-color:#f1e3c4;color:#524b42;>로그인 </a>|";
+    	login = "";    
     }
     
     String join = "";
     if (u_id != null ){
-    	join = "<a href=../login/logout.jsp style=background-color:#f1e3c4;color:#524b42;>로그아웃</a>";	
+    	join = "|<a href=../login/logout.jsp style=background-color:#f1e3c4;color:#524b42;>로그아웃</a>";	
     } else{
-    	join = "<a href=../join/join.jsp style=background-color:#f1e3c4;color:#524b42;>회원가입 </a>";
+    	join = "|<a href=../join/join.jsp>회원가입 </a>";
     }
     %>
- 
+    
     <!-- Preloader -->
     <div id="preloader" style="background-color: #f1ebd6;">
         <div class="loader"></div>
@@ -80,11 +86,13 @@
 
                                 <!-- Search -->
                                 <div class="book-now-btn"  >
-                                   <a href="../room/room_all.jsp" style="background-color: #f1e3c4;color: #524b42;">객실정보</a>|                       
-                                   <a href="../inquiry/inquiry.jsp" style="background-color: #f1e3c4;color: #524b42;">문의하기</a>|                          
-                                   <a href="../location/location.jsp" style="background-color: #f1e3c4;color: #524b42;">위치찾기</a>|                          
-                                    <a href="../reservation/reservation.jsp" style="background-color: #f1e3c4;color: #524b42;">예약 </a>|                              
-                                    <%=login %>
+                                   <a href="../room/room_all.jsp" >객실정보</a>|                       
+                                   <a href="../inquiry/inquiry.jsp" >문의하기</a>|                          
+                                   <a href="../location/location.jsp" >위치찾기</a>|                          
+                                   <a href="../reservation/reservation.jsp" >예약 </a>|                              
+                                   <a href="${pageContext.request.contextPath}/user/userInfo.us" style="display:<%=info %>">내 정보 </a>
+                                   <a href="../login/login.jsp" style="display:<%=login %>">로그인 </a>
+                                   <a href="../admin/admin.jsp" style="display:<%=admin %>">관리자페이지 </a>                                 
                                     <%=join %>
                                 </div>
                                

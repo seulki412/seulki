@@ -36,7 +36,10 @@ public class DoReservationAction implements Action{
 			rdto.setRes_rtype((String)req.getParameter("r_type"));
 			rdto.setRes_price(Integer.parseInt(req.getParameter("r_price")));
 			rdto.setR_id(Integer.parseInt(req.getParameter("r_id")));
-		
+			rdto.setDiffday(Integer.parseInt(req.getParameter("diffday")));
+			
+			System.out.println("get" + session.getAttribute("adults"));
+			System.out.println("get" + session.getAttribute("children"));
 		
 		
 		// 결제 후 예약 테이블 인서트

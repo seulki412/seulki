@@ -36,13 +36,47 @@ public class UsersDAO {
 		HashMap<String, String> datas = new HashMap<>();
 		datas.put("u_id", u_id);
 		datas.put("u_password", u_password);
-		boolean result = false;
-		
+		boolean result = false;		
 		if((Integer)sqlSession.selectOne("User.login",datas) == 1) {
 			result = true;
 		}
-
+		return result;		
+	}
+	
+	// 내정보관리
+	public List<UsersDTO> getInfo(String u_id) {
+		List<UsersDTO> info = sqlSession.selectList("User.userInfo",u_id);		
+		return info;
+	}
+	
+	// 내정보 수정
+	public boolean userUpdate(UsersDTO udto) {
+		boolean result = false;		
+		if(sqlSession.update("User.updateUser", udto) != 0) {
+			result = true;
+		}		
 		return result;
 	}
+	
+	// 회원탈퇴 예약내역 조회 
+	public boolean withdrawSelect(String u_id) {		
+		boolean result = false; 
+		if((Integer)sqlSession.selectOne("User.selectExist" , u_id) != 0) {
+			result = true;
+		}
+		return result;
+	}
+
+	public boolean withdrawOkupdate(String u_id) {
+		boolean result = false;
+		
+		if(sqlSession.update("User.updateWithdraw", u_id) != 0) {
+			result = true;
+		}
+		
+		return result;
+	}
+
+
 }
 

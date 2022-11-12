@@ -20,7 +20,7 @@
     <%@ include file="/header_footer/header.jsp" %>
  	<c:set var="reservationlist" value="${requestScope.reservationlist }"/>
   
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(../image/R0000001PC6L_KR.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(../image/조선객실.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -28,9 +28,9 @@
                         <h2 class="page-title">예약 내역</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">내 정보</li>
-                                <li class="breadcrumb-item active" aria-current="page">예약내역</li>
+                                <li class="breadcrumb-item"><a href="../index.jsp">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href="${pageContext.request.contextPath }/user/userInfo.us">내 정보</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href="${pageContext.request.contextPath }/reservation/ReservationSelect.re">예약내역</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -51,10 +51,10 @@
                             <div class="newsletter-form">
                                 <h4 style="margin-bottom: 30px;font-weight: bold">내 정보</h4>
                                 <div>
-                                    <a href="../mypage/myinfo.jsp" >내 정보 관리</a>                                    
+                                    <a href="${pageContext.request.contextPath }/user/userInfo.us" >내 정보 관리</a>                                    
                                 </div><br>
                                 <div style="background-color:#524b42;text-align: center;" >
-                                    <a href="../reservation/reservationlist.jsp" style="color: white;">예약 내역</a>
+                                    <a href="${pageContext.request.contextPath }/reservation/ReservationSelect.re" style="color: white;">예약 내역</a>
                                 </div>                               
                             </div>                            
                         </div>                        
@@ -65,7 +65,7 @@
                     <%-- 본문--%>
                 <div class="col-12 col-lg-8">
                     
-                    <h2 style="text-align: center;height: 50px;"><span style="background-color: #524b42;color: white;padding: 10px;">예약 내역</span></h2>
+                    <h2 style="text-align: center;height: 50px;"><span style="color: black;padding: 10px;">예약 내역</span></h2>
                     <div class="post-thumbnail mb-50">
                         <div>
                             <table class="col-12" style="text-align: center;">
@@ -96,7 +96,7 @@
 					                                        <td name="res_rtype">${reservation.res_rtype }</td>
 					                                        <td name="res_price">${reservation.res_price }</td>
 					                                        <td>${reservation.res_time}</td>
-					                                        <td><button type='submit' style="margin-left:5px;margin-right: 5px;width:auto;background-color: #524b42;color: white;border:0px;padding:5px;padding-left:10px;padding-right:10px;">예약 취소</button></td>
+					                                        <td><button type='submit' style="margin-left:5px;margin-right: 5px;width:auto;background-color: #524b42;color: white;border:0px;padding:5px;padding-left:10px;padding-right:10px;" onclick="cancelCheck()">예약 취소</button></td>
 					                                   </form>
 				                                    </tr>
 			                                  </c:forEach>
@@ -114,30 +114,10 @@
                                                                
                             </table>
                             <hr>
-						<div style="text-align: center; line-height: 50px;">
-								<div style="display: inline-block; background-color: #524b42; width: 100px; height: 50px;">
-									<a href="../index.jsp" style="color: white;">확인</a>
-								</div>
-								
-							</div>
-						<%-- 체크박스 값 가져오는 버튼 미구현.. --%>
-                        <%--     <div style="text-align: center;margin-top: 100px;"><button onclick="getCheckValue()">예약 취소</button></div>--%>
-                        <%--     <div id="res"></div> --%>
-                        </div>
-                    </div>
-                     <%-- 본문--%>
-                        
+                       </div>
+                    </div>                    
                 </div>
-
-                    
-                    <div class="comment_area mb-50 clearfix">                        
-                        
-                    </div>
-
-                  
-                   
             </div>
-
         </div>
     </div>
     
@@ -156,10 +136,12 @@
     
     <script src="../js/default-assets/active.js"></script>
     
+    <script type="text/javascript">
+    
+    	function cancelCheck() {
+			alert("취소하시겠습니까??");
+		}
+    </script>
+    
 </body>
-
-<script>
-
-</script>
-
 </html>

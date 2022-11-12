@@ -2,6 +2,8 @@ package com.shinnaHotel.DTO;
 
 import java.util.Date;
 
+import oracle.sql.DATE;
+
 public class ResCancelDTO {
 	private int res_number;
 	private String u_id;
@@ -54,11 +56,6 @@ public class ResCancelDTO {
 	public void setCancel_date(String cancel_date) {
 		this.cancel_date = cancel_date;
 	}
-	
-	
-	
-	
-	
 	
 	
 	

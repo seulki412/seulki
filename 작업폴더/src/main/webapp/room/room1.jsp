@@ -10,8 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Title -->
-    <title>Shinna Hotel</title>
-
+<title>Shinna Hotel - 객실정보</title>
     <!-- Favicon -->
     <link rel="icon" href="../image/headicon.png">
 
@@ -24,7 +23,7 @@
  <%@ include file="/header_footer/header.jsp" %>
  
   <!-- Breadcrumb Area Start -->
-    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/16.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay jarallax" style="background-image: url(../image/R0000001PC6L_KR.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col-12">
@@ -47,6 +46,84 @@
     <div class="roberto-news-area section-padding-100-0">
         <div class="container">
             <div class="row justify-content-center">
+            	
+                <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+                    <div class="roberto-sidebar-area pl-md-4">
+
+                        <!-- Newsletter -->
+                        <div class="single-widget-area mb-100">
+                            <div class="newsletter-form">
+                                <h5>객실</h5>
+                                <div style="background-color:  #524b42;" >
+                                    <a href="../room/room1.jsp" style="color: white;">스탠다드<span class="fa fa-arrow-right"></span></a>                                    
+                                </div><br>
+                                <div>
+                                    <a href="../room/room2.jsp">디럭스</a>
+                                </div><br>
+                                <div>
+                                    <a href="../room/room3.jsp">프리미어 디럭스</a>
+                                </div><br>
+                                <div>
+                                    <a href="../room/room4.jsp">그랜드</a>
+                                </div><br>
+                                    <button type="submit" class="btn roberto-btn w-100"><a href="../room/room_all.jsp" style="color:white;">전체 객실 보기</a></button>                                
+                            </div>
+                            <br>
+                            <div style="text-align: center;line-height: 50px;">
+                                <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;">
+                                    <a href="../inquiry/inquirylist.jsp" style=" color: white;">문의하기</a>
+                                </div>
+                                &nbsp;&nbsp;
+                                <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;">
+                                        <a href="../reservation/reservation.jsp" style=" color: white;">예약하기</a>
+                                </div>
+                            </div>
+                        </div>
+                       
+                        <!-- Recent Post -->
+                        <div class="single-widget-area mb-100">
+                            <h4 class="widget-title mb-30">Hotel info.</h4>
+                           
+                            <ul> <h5>체크인/체크아웃시간</h5>
+                                <li>- 체크인 : 오후 3시 이후</li>
+                                <li>- 체크아웃: 정오</li>
+                            </ul>
+                            <br>
+                            <ul> <h5>주차안내</h5>
+                                <li>- 객실 이용 시 1박당 5,000원</li>
+                                <li>· 객실당 1대</li>
+                                <li>· 차량 추가 시 1박당 15,000원 추가 요금 발생</li>
+                                <li>- 호텔 주차장 만차 시 인근 외부 주차장 이용 </li>
+                            </ul>
+                            <br>
+                            <ul> <h5>Cafe 이용안내</h5>
+                                <li>- [조식]</li>
+                                <li class="Hotelinfo">(주중) 06:30~09:30</li>
+                                <li class="Hotelinfo">(주말,공휴일) 07:00~10:00</li>
+                                <li>- [중식]</li>
+                                <li class="Hotelinfo">(주중) 11:30~14:00</li>
+                                <li class="Hotelinfo">(주말,공휴일) 12:00~14:30</li>
+                                <li>- [석식]</li>
+                                <li class="Hotelinfo">(주중,주말,공휴일) 18:00~21:30</li>
+                            </ul>
+                            <br>
+                            <ul><h5>피트니스 센터 이용안내</h5>
+                                <li>- 06:00 ~ 23:00</li>
+                            </ul>
+                            <ul><h5>예약 변경 및 취소</h5>
+                                <li>- 숙박예정일 1일전 18시까지는 위약금 없이 취소 가능</li>
+                                <li>- 위 기간 이후 취소 또는 변경 시(No Show 포함)</li>
+                                <li>· 성수기(4,5,6,10,11월, 12/24, 12/31) : 최초 1박 요금의 80% 부과</li>
+                                <li>· 비수기(성수기 외 기간) : 최초 1박 요금의 10% 부과</li>
+                            </ul>
+
+
+                        <!-- Popular Tags -->
+                        
+
+		                    </div>
+		                </div>
+		            </div>
                 <div class="col-12 col-lg-8">
                     <!-- Post Thumbnail -->
                     <div class="post-thumbnail mb-50">
@@ -136,91 +213,11 @@
 
                     <!-- Leave A Reply -->
                     <div class="roberto-contact-form mt-80 mb-100">
-                        <h2>Leave A Comment</h2>
-
-                        <!-- Form -->
+                     
                         
                     </div>
                 </div>
 
-                <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-                    <div class="roberto-sidebar-area pl-md-4">
-
-                        <!-- Newsletter -->
-                        <div class="single-widget-area mb-100">
-                            <div class="newsletter-form">
-                                <h5>객실</h5>
-                                <div style="background-color:  #524b42;" >
-                                    <i class="fa fa-arrow-left" style="color: white;" aria-hidden="true"></i>                                    
-                                    <a href="" style="color: white;" >스탠다드</a>                                    
-                                </div><br>
-                                <div>
-                                    <a href="">디럭스</a>
-                                </div><br>
-                                <div>
-                                    <a href="">프리미어 디럭스</a>
-                                </div><br>
-                                <div>
-                                    <a href="">그랜드</a>
-                                </div><br>
-                                    <button type="submit" class="btn roberto-btn w-100"><a href="" style="color:white;">전체 객실 보기</a></button>                                
-                            </div>
-                            <br>
-                            <div style="text-align: center;line-height: 50px;">
-                                <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;">
-                                    <a href="" style=" color: white;">문의하기</a>
-                                </div>
-                                &nbsp;&nbsp;
-                                <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;">
-                                        <a href="" style=" color: white;">예약하기</a>
-                                </div>
-                            </div>
-                        </div>
-                       
-                        <!-- Recent Post -->
-                        <div class="single-widget-area mb-100">
-                            <h4 class="widget-title mb-30">Hotel info.</h4>
-                           
-                            <ul> <h5>체크인/체크아웃시간</h5>
-                                <li>- 체크인 : 오후 3시 이후</li>
-                                <li>- 체크아웃: 정오</li>
-                            </ul>
-                            <br>
-                            <ul> <h5>주차안내</h5>
-                                <li>- 객실 이용 시 1박당 5,000원</li>
-                                <li>· 객실당 1대</li>
-                                <li>· 차량 추가 시 1박당 15,000원 추가 요금 발생</li>
-                                <li>- 호텔 주차장 만차 시 인근 외부 주차장 이용 </li>
-                            </ul>
-                            <br>
-                            <ul> <h5>Cafe 이용안내</h5>
-                                <li>- [조식]</li>
-                                <li>(주중) 06:30~09:30</li>
-                                <li>(주말,공휴일) 07:00~10:00</li>
-                                <li>- [중식]</li>
-                                <li>(주중) 11:30~14:00</li>
-                                <li>(주말,공휴일) 12:00~14:30</li>
-                                <li>- [석식]</li>
-                                <li>(주중,주말,공휴일) 18:00~21:30</li>
-                            </ul>
-                            <br>
-                            <ul><h5>피트니스 센터 이용안내</h5>
-                                <li>- 06:00 ~ 23:00</li>
-                            </ul>
-                            <ul><h5>예약 변경 및 취소</h5>
-                                <li>- 숙박예정일 1일전 18시까지는 위약금 없이 취소 가능</li>
-                                <li>- 위 기간 이후 취소 또는 변경 시(No Show 포함)</li>
-                                <li>· 성수기(4,5,6,10,11월, 12/24, 12/31) : 최초 1박 요금의 80% 부과</li>
-                                <li>· 비수기(성수기 외 기간) : 최초 1박 요금의 10% 부과</li>
-                            </ul>
-
-
-                        <!-- Popular Tags -->
-                        
-
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <!-- Blog Area End -->

@@ -16,7 +16,7 @@
 	
 	<insert id="insertReservation" parameterType="reservationdto">
 		 INSERT INTO RESERVATION 
-         VALUES (res_no_seq.nextval, #{u_id}, #{res_adults}, #{res_kids}, #{res_checkin}, #{res_checkout}, #{res_rtype}, #{res_price}, TO_CHAR(SYSDATE, 'YYYY-MM-DD'), #{r_id})
+         VALUES (res_no_seq.nextval, #{u_id}, #{res_adults}, #{res_kids}, #{res_checkin}, #{res_checkout}, #{res_rtype}, #{res_price}, TO_CHAR(SYSDATE, 'YYYY-MM-DD'), #{r_id}, #{diffday}, #{res_price} * #{diffday})
 	</insert>
 	
 	<select id="selectReservation" parameterType="String" resultType="reservationdto">

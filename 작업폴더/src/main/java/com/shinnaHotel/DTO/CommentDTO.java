@@ -8,10 +8,7 @@ public class CommentDTO {
 	private int b_number;			// 댓글이 달린 글 번호
 	private int c_number;			// 댓글 번호
 	private String c_comment;		// 댓글 내용
-	private Date c_date;			// 댓글 작성일
-	
-	
-	
+	private Date c_date;
 	public int getB_number() {
 		return b_number;
 	}
@@ -36,6 +33,13 @@ public class CommentDTO {
 	public void setC_date(Date c_date) {
 		this.c_date = c_date;
 	}
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

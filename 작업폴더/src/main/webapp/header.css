@@ -1,8 +1,11 @@
 .header-area {
-    position: relative;
+    position: sticky;
     z-index: 100;
     width: 100%;
     transition-duration: 500ms;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid black;
+  
   }
   .header-area .search-form {
     transition-duration: 350ms;
@@ -45,3 +48,33 @@
   .header-area .search-form form button:focus {
     outline: none;
   }
+
+.book-now-btn > a {
+/*     background-color: #f1e3c4 !important;  */
+/*     color: #524b42 !important; */
+    font-family: fantasy !important;
+    width: auto !important;
+  }
+  header > div > a > i {
+    color: #f1ebd6;
+  }
+
+
+  body > header{
+    font-family: fantasy;
+  }
+
+  header {
+    height: 60px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    top: 0;
+    z-index: 1;
+    position: sticky;
+}
+.top-header-content i:hover{
+	background-color: rgb(240, 240, 240);
+        cursor: pointer;
+}
+
+

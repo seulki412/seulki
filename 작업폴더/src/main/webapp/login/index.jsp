@@ -1,19 +1,5 @@
-<%@page import="java.util.Calendar"%>
-<%@page import="java.text.SimpleDateFormat"%>
-<%@page import="java.util.Date"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-Date today = new Date();
-SimpleDateFormat simpledateformat = new SimpleDateFormat("yyyy-MM-dd");
-String now = simpledateformat.format(today);
-
-Calendar cal = Calendar.getInstance();
-String format = "yyyy-mm-dd";
-cal.add(cal.DATE, +1);
-String tomorrow = simpledateformat.format(cal.getTime());
-
-%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -106,16 +92,16 @@ String tomorrow = simpledateformat.format(cal.getTime());
         <div class="hotel-search-form-area">
             <div class="container-fluid">
                 <div class="hotel-search-form">
-                    <form action="${pageContext.request.contextPath }/reservation/RoomSearch.re" method="post">
+                    <form action="#" method="post">
                         <p>날짜, 인원 선택</p>
                         <div class="row justify-content-between align-items-end">
                             <div class="col-6 col-md-2 col-lg-3">
                                 <label for="checkIn">체크인</label>
-                                <input type="date" class="form-control" id="checkIn" name="checkin_date" min='<%=now%>'>
+                                <input type="date" class="form-control" id="checkIn" name="checkin-date">
                             </div>
                             <div class="col-6 col-md-2 col-lg-3">
                                 <label for="checkOut">체크아웃</label>
-                                <input type="date" class="form-control" id="checkOut" name="checkout_date" min='<%=tomorrow%>'>
+                                <input type="date" class="form-control" id="checkOut" name="checkout-date">
                             </div>
                             <div class="col-4 col-md-1">
                                 <label for="room">객실</label>
@@ -123,6 +109,7 @@ String tomorrow = simpledateformat.format(cal.getTime());
                                     <option value="01">01</option>
                                     <option value="02">02</option>
                                     <option value="03">03</option>
+
                                 </select>
                             </div>
                             <div class="col-4 col-md-1">
@@ -131,6 +118,7 @@ String tomorrow = simpledateformat.format(cal.getTime());
                                     <option value="01">01</option>
                                     <option value="02">02</option>
                                     <option value="03">03</option>
+
                                 </select>
                             </div>
                             <div class="col-4 col-md-2 col-lg-1">
@@ -139,6 +127,7 @@ String tomorrow = simpledateformat.format(cal.getTime());
                                     <option value="01">01</option>
                                     <option value="02">02</option>
                                     <option value="03">03</option>
+
                                 </select>
                             </div>
                             <div class="col-12 col-md-3">
@@ -253,54 +242,6 @@ String tomorrow = simpledateformat.format(cal.getTime());
             </div>
         </div>
     </section>
-    <!-- About Us Area End -->
-
-  
-
-
-
-    
-
-  
- 
-
-    <!-- Call To Action Area Start -->
-<!--     <section class="roberto-cta-area"> -->
-<!--         <div class="container"> -->
-<!--             <div class="cta-content bg-img bg-overlay jarallax" style="background-image: url(img/bg-img/1.jpg);"> -->
-<!--                 <div class="row align-items-center"> -->
-<!--                     <div class="col-12 col-md-7"> -->
-<!--                         <div class="cta-text mb-50"> -->
-<!--                             <h2>Contact us now!</h2> -->
-<!--                             <h6>Contact (+12) 345-678-9999 to book directly or for advice</h6> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                     <div class="col-12 col-md-5 text-right"> -->
-<!--                         <a href="#" class="btn roberto-btn mb-50">Contact Now</a> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--     </section> -->
-    <!-- Call To Action Area End -->
-
-    <!-- Partner Area Start -->
-<!--     <div class="partner-area"> -->
-<!--         <div class="container"> -->
-<!--             <div class="row"> -->
-<!--                 <div class="col-12"> -->
-<!--                     <div class="partner-logo-content d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms"> -->
-<!--                         <a href="#" class="partner-logo"><img src="img/core-img/p1.png" alt=""></a> -->
-<!--                         <a href="#" class="partner-logo"><img src="img/core-img/p2.png" alt=""></a> -->
-<!--                         <a href="#" class="partner-logo"><img src="img/core-img/p3.png" alt=""></a> -->
-<!--                         <a href="#" class="partner-logo"><img src="img/core-img/p4.png" alt=""></a> -->
-<!--                         <a href="#" class="partner-logo"><img src="img/core-img/p5.png" alt=""></a> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--     </div> -->
-    <!-- Partner Area End -->
 
     <%@ include file="/header_footer/footer.jsp" %>
 
@@ -318,4 +259,12 @@ String tomorrow = simpledateformat.format(cal.getTime());
 
 </body>
 
+<script>
+function updateReadonly(abc) { 
+	
+	alert("변경하기");
+	
+// 	document.getElementByClassName(edit).readOnly = false;
+}
+</script>
 </html>
