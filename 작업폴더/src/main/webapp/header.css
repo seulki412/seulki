@@ -54,6 +54,8 @@
 /*     color: #524b42 !important; */
     font-family: fantasy !important;
     width: auto !important;
+    font-weight: 600;
+    color:#524b42;
   }
   header > div > a > i {
     color: #f1ebd6;
@@ -72,9 +74,8 @@
     z-index: 1;
     position: sticky;
 }
-.top-header-content i:hover{
-	background-color: rgb(240, 240, 240);
-        cursor: pointer;
-}
+
+
+
 
 

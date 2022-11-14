@@ -55,7 +55,7 @@
 						<!-- Newsletter -->
 						<div class="single-widget-area mb-100">
 							<div class="newsletter-form">
-								<h5>인기 객실</h5>
+								<h5>객실</h5>
 								<div>
 									<a href="../room/room1.jsp">스탠다드</a>
 								</div>
@@ -94,63 +94,49 @@
 				</div>
 				<div class="col-12 col-lg-8">
 					<!-- Post Thumbnail -->
-					<div class="post-thumbnail mb-50">
-					
-					<%--폼태그 --%>
-					
+					<div class="post-thumbnail mb-50">						
 						<table class="table-b">
 							<colgroup>
 								<col width="300px;">
-								<col width="200px;">
-								<col width="200px;">
-								<col width="200px;">
+								<col width="100px;">
+								<col width="300px;">
+								<col width="500px;">
 							</colgroup>
 								<thead>
 									<tr>
 										<th>객실 타입</th>
-										<th>가격</th>
-										<th>최대 인원 수</th>
+										<th>크기</th>
 										<th>전망</th>
+										<th>베드 타입</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
 										<td class="trth">스탠다드</td>
-										<td>200000</td>
-										<td>4</td>
-										<td class="t-addr">시티 뷰</td>
+										<td>21.7m</td>
+										<td>시티 뷰</td>
+										<td class="t-addr">더블, 트윈</td>
 									</tr>
 									<tr>
 										<td class="trth">디럭스</td>
-										<td>500000</td>
-										<td>4</td>
-										<td class="t-addr">시티 뷰</td>
+										<td>21.7m</td>
+										<td>시티 뷰</td>
+										<td class="t-addr">더블</td>
 									</tr>
 									<tr>
 										<td class="trth">프리미어 디럭스</td>
-										<td>300000</td>
-										<td>4</td>
-										<td class="t-addr">시티 뷰</td>
+										<td>21.7m</td>
+										<td>시티 뷰</td>
+										<td class="t-addr">더블</td>
 									</tr>
 									<tr>
 										<td class="trth">그랜드</td>
-										<td>200000</td>
-										<td>4</td>
-										<td class="t-addr">시티 뷰</td>
-									</tr><%--for문 돌릴 구간 --%>
-									<tr>
-										<td class="trth">객실 타입</td>
-										<td>가격</td>
-										<td>최대인원수</td>
-										<td class="t-addr">시티 뷰</td> <%--이 부분은 고정 for문 x --%>
-									</tr>						
-								<%--for문 돌릴 구간 --%>
+										<td>50m2</td>
+										<td>시티 뷰</td>
+										<td class="t-addr">더블</td>
+									</tr>									
 								</tbody>
 						</table>
-						
-						
-					<%--폼태그 --%>
-						
 					</div>
 					<!-- Blog Details Text -->
 					<div class="blog-details-text"></div>

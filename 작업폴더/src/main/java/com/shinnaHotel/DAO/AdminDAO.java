@@ -154,6 +154,10 @@ public class AdminDAO {
 	}
 
 
+	// r_id 시퀀스 가져오기
+	public int getSeq() {
+		return sqlSession.selectOne("Files.getSeq");
+	}
 	
 
 

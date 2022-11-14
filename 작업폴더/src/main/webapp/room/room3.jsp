@@ -17,6 +17,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="./room.css">
 </head>
 <body>
 
@@ -31,9 +32,9 @@
                         <h2 class="page-title">객실 정보</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb justify-content-center">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">객실정보</li>
-                                <li class="breadcrumb-item active" aria-current="page">프리미어 디럭스</li>
+                                <li class="breadcrumb-item"><a href="../index.jsp">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current><a href="./room_all.jsp">객실정보</a></li>
+                                <li class="breadcrumb-item active" aria-current="page"><a href=",room3.jsp">프리미어 디럭스</a></li>
                             </ol>
                         </nav>
                     </div>
@@ -59,8 +60,8 @@
                                 <div>
                                     <a href="../room/room2.jsp">디럭스</a>
                                 </div><br>
-                                 <div style="background-color:  #524b42;" >
-                                 <a href="../room/room3.jsp" style="color: white;">프리미어ㅏ 디럭스<span class="fa fa-arrow-right"></span></a>                                                                        
+                                 <div class="menuinfo">
+                                 <a href="../room/room3.jsp">프리미어 디럭스</a>                                                                        
                                 </div><br>
                                 <div>
                                     <a href="../room/room4.jsp">그랜드</a>
@@ -68,12 +69,12 @@
                                     <button type="submit" class="btn roberto-btn w-100"><a href="../room/room_all.jsp" style="color:white;">전체 객실 보기</a></button>                                
                             </div>
                             <br>
-                            <div style="text-align: center;line-height: 50px;">
-                                <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;">
+                            <div class="rooment">
+                                <div class="roombtn">
                                     <a href="../inquiry/inquirylist.jsp" style=" color: white;">문의하기</a>
                                 </div>
                                 &nbsp;&nbsp;
-                                <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;">
+                                <div class="roombtn">
                                         <a href="../reservation/reservation.jsp" style=" color: white;">예약하기</a>
                                 </div>
                             </div>

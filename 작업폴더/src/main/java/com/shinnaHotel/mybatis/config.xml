@@ -10,6 +10,7 @@
  		<typeAlias type="com.shinnaHotel.DTO.RoomDTO" alias="roomdto"/>
  		<typeAlias type="com.shinnaHotel.DTO.UsersDTO" alias="userdto"/>
  		<typeAlias type="com.shinnaHotel.DTO.ResCancelDTO" alias="rescanceldto"/>
+ 		<typeAlias type="com.shinnaHotel.DTO.FilesDTO" alias="filesdto"/>
  		
  	</typeAliases>
  
@@ -31,6 +32,7 @@
  		<mapper resource="com/shinnaHotel/app/xml/room.xml"/>
  		<mapper resource="com/shinnaHotel/app/xml/user.xml"/> 		
  		<mapper resource="com/shinnaHotel/app/xml/admin.xml"/> 		
+ 		<mapper resource="com/shinnaHotel/app/xml/files.xml"/> 		
  	</mappers>
  	
 </configuration>

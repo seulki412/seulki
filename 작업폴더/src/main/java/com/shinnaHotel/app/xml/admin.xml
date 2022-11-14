@@ -70,7 +70,7 @@
 	<!-- 객실 추가 -->
 	<insert id="insertRoom" parameterType="roomdto">
 		INSERT INTO room 
-		VALUES ( #{r_id}, #{r_type}, #{r_capacity}, #{r_price}, #{r_img})
+		VALUES ( r_id_seq.nextval, #{r_type}, #{r_capacity}, #{r_price}, #{r_img})
 	</insert>
 	<!-- 객실 수정 -->
 	<update id="updateRoom" parameterType="roomdto">
@@ -78,7 +78,7 @@
 				r_type 		= #{r_type},
 				r_capacity 	= #{r_capacity},
 				r_price 	= #{r_price},
-				r_img = #{r_img}
+				r_img 		= #{r_img}
 			WHERE r_id = #{r_id}
 	</update>
 	<!-- 객실 삭제 -->

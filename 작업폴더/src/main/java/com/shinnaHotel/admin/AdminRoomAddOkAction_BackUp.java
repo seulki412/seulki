@@ -8,19 +8,16 @@ import javax.servlet.http.HttpServletResponse;
 import com.oreilly.servlet.MultipartRequest;
 import com.oreilly.servlet.multipart.DefaultFileRenamePolicy;
 import com.shinnaHotel.DAO.AdminDAO;
-import com.shinnaHotel.DAO.FilesDAO;
 import com.shinnaHotel.DTO.RoomDTO;
 import com.shinnaHotel.action.Action;
 import com.shinnaHotel.action.ActionForward;
 
-public class AdminRoomAddOkAction implements Action{
+public class AdminRoomAddOkAction_BackUp implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		ActionForward forward = new ActionForward();
 		AdminDAO adao = new AdminDAO();
-		RoomDTO rdto = new RoomDTO();
-		FilesDAO fdao = new FilesDAO();
 		
 		
 		MultipartRequest multi = null;
@@ -38,27 +35,21 @@ public class AdminRoomAddOkAction implements Action{
 		}
 		
 		
-//		int r_id = Integer.parseInt( multi.getParameter("r_id"));
+		int r_id = Integer.parseInt(   req.getParameter("r_id") );
 
-//		rdto.setR_id(r_id);
-		rdto.setR_type(multi.getParameter("r_type"));
-		rdto.setR_capacity(Integer.parseInt( multi.getParameter("r_capacity")));
-		rdto.setR_price(Integer.parseInt( multi.getParameter("r_price") ));
-		rdto.setR_img(multi.getParameter("r_img"));
+		RoomDTO rdto = new RoomDTO();
+		rdto.setR_id(r_id);
+		rdto.setR_type(req.getParameter("r_type"));
+		rdto.setR_capacity(Integer.parseInt( req.getParameter("r_capacity")));
+		rdto.setR_price(Integer.parseInt( req.getParameter("r_price") ));
+		rdto.setR_img(req.getParameter("r_img"));
 		
 		
-		adao.insertRoom(rdto);
-		fdao.insertFile(multi, adao.getSeq());
-		
-		
-		forward.setRedirect(true);
-		forward.setPath(req.getContextPath() + "/admin/AdminRoomList.ad" );
-		
-//		if(adao.insertRoom(rdto)) {
-//			// 성공시
-//			forward.setRedirect(true);
-//			forward.setPath(((HttpServletRequest) multi).getContextPath() + "/admin/AdminRoomView.ad?r_id=" + r_id);
-//		} 
+		if(adao.insertRoom(rdto)) {
+			// 성공시
+			forward.setRedirect(true);
+			forward.setPath(req.getContextPath() + "/admin/AdminRoomView.ad?r_id=" + r_id);
+		} 
 		return forward;
 	}
 

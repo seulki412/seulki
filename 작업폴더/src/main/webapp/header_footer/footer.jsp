@@ -88,3 +88,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </footer>
     <!-- Footer Area End -->
+    
+<Style>
+	.single-footer-widget{
+	text-shadow: 0px 0px 6px grey;
+	}
+</Style>
+
+ 

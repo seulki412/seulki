@@ -14,6 +14,7 @@
     <link rel="icon" href="../image/headicon.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../room/room.css">
 </head>
 <body>
 
@@ -49,12 +50,12 @@
                     <div class="roberto-sidebar-area pl-md-4">
                         <div class="single-widget-area mb-100">
                             <div class="newsletter-form">
-                                <h4 style="margin-bottom: 30px;font-weight: bold">내 정보</h4>
+                                <h5>내 정보</h5>
                                 <div>
                                     <a href="${pageContext.request.contextPath }/user/userInfo.us" >내 정보 관리</a>                                    
                                 </div><br>
-                                <div style="background-color:#524b42;text-align: center;" >
-                                    <a href="${pageContext.request.contextPath }/reservation/ReservationSelect.re" style="color: white;">예약 내역</a>
+                                <div class="menuinfo" >
+                                    <a href="${pageContext.request.contextPath }/reservation/ReservationSelect.re">예약 내역</a>
                                 </div>                               
                             </div>                            
                         </div>                        
@@ -65,14 +66,25 @@
                     <%-- 본문--%>
                 <div class="col-12 col-lg-8">
                     
-                    <h2 style="text-align: center;height: 50px;"><span style="color: black;padding: 10px;">예약 내역</span></h2>
+                    <h2 style="text-align: center;height: 50px;"><span style="color: black;padding: 10px;font-weight: 800;">예약 내역</span></h2>
                     <div class="post-thumbnail mb-50">
                         <div>
-                            <table class="col-12" style="text-align: center;">
-                                <thead style="background-color: #f1e3c4;height: 70px;border-top: #524b42;" >                            
-                                    <th>예약번호</th>
+                            <table class="col-12 table-b">
+                            	<colgroup>
+                            		<col width= "120px">                            		
+                            		<col width= "50px">                            		
+                            		<col width= "75px">                            		
+                            		<col width= "145px">                            		
+                            		<col width= "145px">                            		
+                            		<col width= "100px">                            		
+                            		<col width= "100px">                            		
+                            		<col width= "150px">                            		
+                            		<col width= "140px">                            		
+                            	</colgroup>
+                                <thead style="border-radius:3px;">                            
+                                    <th style="font-size: 16px;line-height: inherit;">예약번호</th>
                                     <th>성인</th>
-                                    <th>어린이</th>
+                                    <th style="font-size: 15px;line-height: inherit;">어린이</th>
                                     <th>체크인</th>
                                     <th>체크아웃</th>
                                     <th>객실</th>
@@ -96,7 +108,7 @@
 					                                        <td name="res_rtype">${reservation.res_rtype }</td>
 					                                        <td name="res_price">${reservation.res_price }</td>
 					                                        <td>${reservation.res_time}</td>
-					                                        <td><button type='submit' style="margin-left:5px;margin-right: 5px;width:auto;background-color: #524b42;color: white;border:0px;padding:5px;padding-left:10px;padding-right:10px;" onclick="cancelCheck()">예약 취소</button></td>
+					                                        <td><button type='submit' id="cancel" onclick="cancelCheck()">예약 취소</button></td>
 					                                   </form>
 				                                    </tr>
 			                                  </c:forEach>
@@ -145,3 +157,28 @@
     
 </body>
 </html>
+
+<style>
+table{
+border-radius : 3px;
+}
+thead{
+background-color: #f1e3c4;
+height: 70px;
+border-top: #524b42;
+border-radius: 6px;
+}
+tbody{
+line-height : 50px;
+margin-bottom: 2px;
+}
+#cancel{
+	margin: 3px 5px;
+	width:auto;
+	background-color: #524b42;
+	color: white;
+	border:0px;
+	padding:5px;
+	border-radius: 6px;
+	}
+</style>

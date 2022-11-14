@@ -28,6 +28,7 @@ int diffday = Integer.parseInt(request.getParameter("diffday"));
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../room/room.css">
 </head>
 
 
@@ -208,12 +209,12 @@ int diffday = Integer.parseInt(request.getParameter("diffday"));
                                
                         <div class="select-wrap">
                             <div style="text-align: center;line-height: 50px;">
-                                <div style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;" >
+                                <div class="roombtn" style="display: inline-block;background-color: #524b42;width: 100px; height: 50px;" >
                                     <a  href="" style=" color: white; margin-left: 10px;margin-right: 10px;">< 문의하기</a>
                                 </div>
                                 &nbsp;&nbsp;
                        
-                                <div style="display: inline-block;background-color: #524b42;width: auto; height: 50px;">
+                                <div class="roombtn" style="display: inline-block;background-color: #524b42;width: auto; height: 50px;">
                                         <a href="" style=" color: white; margin-left: 10px;margin-right: 10px;">결제 금액 : </a><a href="" style=" color: white; margin-left: 10px;margin-right: 10px;"> <%=r_price * diffday %> 원</a>
                                 </div>
                                
@@ -229,7 +230,7 @@ int diffday = Integer.parseInt(request.getParameter("diffday"));
                                               <input type="hidden" name="r_type"  value="<%=r_type %>">
                                               <input type="hidden" name="r_id"  value="<%=r_id %>">
                                               <input type="hidden" name="diffday"  value="<%=diffday %>">
-                                              <button type="submit" style="display: inline;color: white;background-color: #524b42; margin-left: ;margin-right: ;border:0;">예약하기 ></button>
+                                              <button type="submit" class="roombtn" style="display: inline;color: white;background-color: #524b42; border:0;">예약하기 ></button>
 
                                <%--       </form>		--%>
                                 </div>

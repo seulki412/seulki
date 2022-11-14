@@ -14,6 +14,7 @@
     <link rel="icon" href="../image/headicon.png">
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../header.css">
+    <link rel="stylesheet" href="../room/room.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 </head>
 <body>
@@ -51,9 +52,9 @@
                     <div class="roberto-sidebar-area pl-md-4">
                         <div class="single-widget-area mb-100">
                             <div class="newsletter-form">
-                                <h4 style="margin-bottom: 30px;font-weight: bold">내 정보</h4>
-                                <div style="background-color:#524b42;text-align: center;">
-                                    <a href="${pageContext.request.contextPath }/user/userInfo.us" style="color: white;">내 정보 관리</a>                                    
+                                <h5>내 정보</h5>
+                                <div class="menuinfo">
+                                    <a href="${pageContext.request.contextPath }/user/userInfo.us">내 정보 관리</a>                                    
                                 </div><br>
                                 <div>
                                     <a href="${pageContext.request.contextPath }/reservation/ReservationSelect.re">예약 내역</a>
@@ -66,47 +67,38 @@
 
                     <%-- 본문--%>
                 <div class="col-12 col-lg-8">
-                    <h2 style="text-align: center;height: 50px;"><span style="background-color: #524b42;color: white;padding: 10px;">내 정보 관리</span></h2>
+                    <h2 style="text-align: center;height: 50px;"><span style="color: black;padding: 10px;font-weight: 800;">내 정보 관리</span></h2>
                     <div class="post-thumbnail mb-50">
                         <div>
                     <form action="" method="post" name="userupdate">
                     	<c:choose>
                                	<c:when test="${userInfo != null and fn:length(userInfo) > 0 }">
                                	<c:forEach var="info" items="${userInfo}">      
-                            <table class="col-12">
-                                <thead>
-                                    <tr>
-	                                    <th>ID</th>
-                                    </tr>
-                                    <tr>
-	                                    <th>이름</th>
-                                    </tr>
-                                    <tr>
-	                                    <th>비밀번호</th>
-                                    </tr>
-                                    <tr>
-	                                    <th>핸드폰번호</th>
-                                    </tr>
-                                    <tr>
-	                                    <th>이메일</th>
-                                    </tr>
-                                </thead>
-                                                        	
+                            <table class="table-b">
+                            	<colgroup>
+                            		<col width= "250px">
+                            		<col width= "250x">
+                            	</colgroup>                                                        	
                             	<tbody>
-	                           		<tr>	                        
-	                                    <th><input type="text" value="${info.u_id }" readonly></th>
+	                           		<tr>
+		                           		<th class="trth">ID</th>
+		                           		<td><input type="text" value="${info.u_id }" readonly></td>
                                     </tr>
                                     <tr>
-	                                    <th><input type="text" class="edit" name="u_name" value="${info.u_name }" readonly></th>
+	                                    <th class="trth">이름</th>
+		                              	<td><input type="text" class="edit" name="u_name" value="${info.u_name }" readonly></td>
                                     </tr>	                                   
                                     <tr>
-	                                    <th><input type="password" class="edit" name="u_password" value="${info.u_password }" readonly></th>
-	                                </tr>
-                                    <tr>                                        
-	                                    <th><input type="text" class="edit" name="u_phone" value="${info.u_phone }" readonly></th>
+	                                    <th class="trth">비밀번호</th>
+		                                <td><input type="password" class="edit" name="u_password" value="${info.u_password }" readonly></td>
 	                                </tr>
                                     <tr>
-	                                    <th><input type="text" class="edit" name="u_email" value="${info.u_email }" readonly></th>
+	                                    <th class="trth">핸드폰번호</th>
+		                                <td><input type="text" class="edit" name="u_phone" value="${info.u_phone }" readonly></td>
+	                                </tr>
+                                    <tr>
+	                                    <th class="trth">이메일</th>
+		                                <td><input type="text" class="edit" name="u_email" value="${info.u_email }" readonly></td>
 	                                </tr>
                                  
                                 </tbody>
@@ -119,7 +111,7 @@
                                 </c:when>
                                 </c:choose>							
                         </form>
-                       </div> 
+                       </div>  
                            
                             <hr>
 							
@@ -194,38 +186,24 @@ function useredit(u_password, u_id){
 
 
 <style>
-table{
-display: inline-block;
-text-align: center;
-width: 600px;
-font-size: 20px;
-margin: 50px 1px 50px;
+.table-b {
+width:100%;
+box-shadow: 0 2px 40px 8px rgb(15 15 15 / 15%);
 }
-thead{
-    display: inline-block;
-    background-color:  #f1e3c4;
-    float: left;
-    margin-left: 50px;
-    padding: 10px 50px;
-  
-}
-
-tbody{
-    display:inline-block;
-    padding: 10px 50px;
-    
-}
-
-tr{
-   height: 50px;
-}
-
-th,td{display:block
-    back
-}
-input{
-	border:none;
-}
+ .table-b .trth{
+background-color: #f1e3c4; 
+ }
+ 
+ .table-b tr, th {
+ border: none;
+ }
+  input{
+  border : none;
+  }
+ 
+ .table-b td {
+ background-color: white;
+ }
 .change{
  	display: inline-block;  
 	background-color: #524b42; 
@@ -234,6 +212,13 @@ input{
  	 color : white; 
 	margin:20px;
  } 
+ .change:hover{
+ 		font-weight: 500;
+    -webkit-box-shadow: 0 2px 40px 8px rgb(15 15 15 / 15%);
+    box-shadow: 0 2px 40px 8px rgb(15 15 15 / 15%);
+    background-color: #7c4949;
+    color: white;
+ }
 
 </style>
 

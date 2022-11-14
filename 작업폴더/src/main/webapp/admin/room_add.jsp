@@ -28,12 +28,12 @@
 		
 		<!-- 추가를 위한 HTML 폼 시작 -->
 		<form class="form-horizontal" method="post" action="/admin/AdminRoomAddOk.ad" name="writeForm" enctype="multipart/form-data">
-		  <div class="form-group">
-		    <label for="r_id" class="col-sm-2 control-label">객실 아이디</label>
-		    <div class="col-sm-10">
-		      <input type="text" class="form-control" id="r_id" name="r_id" />
-		    </div>
-		  </div>
+<!-- 		  <div class="form-group"> -->
+<!-- 		    <label for="r_id" class="col-sm-2 control-label">객실 아이디</label> -->
+<!-- 		    <div class="col-sm-10"> -->
+<!-- 		      <input type="text" class="form-control" id="r_id" name="r_id" /> -->
+<!-- 		    </div> -->
+<!-- 		  </div> -->
 		  
 		  <div class="form-group">
 		    <label for="r_type" class="col-sm-2 control-label">객실 종류</label>
@@ -68,7 +68,7 @@
 							<div class="files">
 								<div>
 									<label for="board_file1" style="display:inline;">
-										<img id="board_file1Img" src="${pageContext.request.contextPath}/images/filePlus.png" width="220px" height="220px" style="display:inline;">
+										<img id="board_file1Img" src="${pageContext.request.contextPath}/image/add.png" width="220px" height="220px" style="display:inline;">
 									</label>
 							    </div>
 								<input id="board_file1" name="board_file1" type="file">
@@ -77,7 +77,7 @@
 							<div class="files">
 								<div>
 									<label for="board_file2" style="display:inline;">
-										<img id="board_file2Img" src="${pageContext.request.contextPath}/images/filePlus.png" width="220px" height="220px" style="display:inline;">
+										<img id="board_file2Img" src="${pageContext.request.contextPath}/image/add.png" width="220px" height="220px" style="display:inline;">
 									</label>
 								</div>
 								<input id="board_file2" name="board_file2" type="file">
@@ -86,7 +86,7 @@
 							<div class="files">
 								<div>
 									<label for="board_file3" style="display:inline;">
-										<img id="board_file3Img" src="${pageContext.request.contextPath}/images/filePlus.png" width="220px" height="220px" style="display:inline;">
+										<img id="board_file3Img" src="${pageContext.request.contextPath}/image/add.png" width="220px" height="220px" style="display:inline;">
 									</label>
 								</div>
 								<input id="board_file3" name="board_file3" type="file">
@@ -108,11 +108,11 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script type="text/javascript">
 	function send() {
-		if(!$("input#r_id").val()){
-			alert("객실 아이디를 입력해주세요.");
-			$("#r_id").focus();
-			return;
-		}
+// 		if(!$("input#r_id").val()){
+// 			alert("객실 아이디를 입력해주세요.");
+// 			$("#r_id").focus();
+// 			return;
+// 		}
 		if(!$("input#r_type").val()){
 			alert("객실 종류를 입력해주세요.");
 			$("#r_type").focus();
@@ -128,11 +128,11 @@
 			$("#r_price").focus();
 			return;
 		}
-		if(!$("input#r_img").val()){
-			alert("이미지를 등록해주세요.");
-			$("#r_img").focus();
-			return;
-		}
+// 		if(!$("input#r_img").val()){
+// 			alert("이미지를 등록해주세요.");
+// 			$("#r_img").focus();
+// 			return;
+// 		}
 		
 		document.writeForm.submit();
 	}
@@ -154,6 +154,11 @@
 			reader.readAsDataURL(file);
 		}
 	});
+	
+	function cancelFile(fileTagName) {
+		$("input[name='"+ fileTagName +"']").val("");
+		$("img#" +fileTagName + "Img").attr("src", "${pageContext.request.contextPath}/image/add.png");
+	}
 </script>
 </html>
 
