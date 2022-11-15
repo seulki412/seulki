@@ -48,8 +48,8 @@
  <div style="margin: auto; " class="login-wrapper">
     <h2>회원가입</h2>
      회원 정보 입력
-    <br>																		<!-- 유효성 검사 결과 리턴-->
-    <form action="${pageContext.request.contextPath }/user/UserJoin.us" method="post" class="login-form" onsubmit="return sendit();">                            
+    <br>																		
+    <form action="/user/UserJoin.us" method="post" id="myform" class="login-form">             
         <p>        
             <div>이름</div> <input type="text"  name="u_name"  placeholder="이름을 입력하세요">                
         </p>

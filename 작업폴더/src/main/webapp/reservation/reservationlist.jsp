@@ -69,22 +69,11 @@
                     <h2 style="text-align: center;height: 50px;"><span style="color: black;padding: 10px;font-weight: 800;">예약 내역</span></h2>
                     <div class="post-thumbnail mb-50">
                         <div>
-                            <table class="col-12 table-b">
-                            	<colgroup>
-                            		<col width= "120px">                            		
-                            		<col width= "50px">                            		
-                            		<col width= "75px">                            		
-                            		<col width= "145px">                            		
-                            		<col width= "145px">                            		
-                            		<col width= "100px">                            		
-                            		<col width= "100px">                            		
-                            		<col width= "150px">                            		
-                            		<col width= "140px">                            		
-                            	</colgroup>
-                                <thead style="border-radius:3px;">                            
-                                    <th style="font-size: 16px;line-height: inherit;">예약번호</th>
+                            <table class="col-12 table-b" style="text-align: center;">
+                                <thead>                            
+                                    <th>예약번호</th>
                                     <th>성인</th>
-                                    <th style="font-size: 15px;line-height: inherit;">어린이</th>
+                                    <th>어린이</th>
                                     <th>체크인</th>
                                     <th>체크아웃</th>
                                     <th>객실</th>

@@ -30,7 +30,7 @@
 
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="admin.jsp">ADMIN</a>
+		<a class="navbar-brand ps-3" href="${pageContext.request.contextPath }/admin/AdminMain.ad">ADMIN</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -83,11 +83,6 @@
 								</div> 메인 홈페이지
 							</a>
 							<hr>
-							<a class="nav-link" href="#">
-								<div class="sb-nav-link-icon">
-									<i class="fas fa-table"></i>
-								</div> ADMIN 모드 종료
-							</a>
 						</div>
 					</div>
 
@@ -145,7 +140,8 @@
 															<td name="res_rtype">${reservation.res_rtype }</td>
 															<td name="res_price">${reservation.res_price }</td>
 															<td>${reservation.res_time}</td>
-															<td><a href="javascript:edit('${reservation.res_number }','${reservation.u_id}' ,'${reservation.res_checkin }','${reservation.res_checkout }','${reservation.res_rtype }','${reservation.res_price }')" >예약취소</a></td>
+															<td><a href="javascript:edit('${reservation.res_number }','${reservation.u_id}' ,'${reservation.res_checkin }','${reservation.res_checkout }','${reservation.res_rtype }','${reservation.res_price }')" >
+															예약취소</a></td>
 													</tr>
 												</c:forEach>
 											</c:when>
@@ -165,83 +161,22 @@
 				</div>
 			</main>
 
-			<!--                 <main> -->
-			<!-- 			<div class="container-fluid px-4"> -->
-			<!-- 				<h1 class="mt-4">예약취소 회원</h1> -->
-			<!-- 				<br> -->
-			<!-- 				<div class="card mb-4"> -->
-
-			<!-- 					<div class="card-body"> -->
-			<!-- 						<table id="datatablesSimple2"> -->
-			<!-- 							<thead> -->
-			<!-- 								<tr> -->
-			<!-- 									<th>아이디</th> -->
-			<!-- 									<th>체크인</th> -->
-			<!-- 									<th>체크아웃</th> -->
-			<!-- 									<th>객실</th> -->
-			<!-- 									<th>금액</th> -->
-			<!-- 									<th>취소일</th> -->
-
-			<!-- 								</tr> -->
-
-			<!-- 							</thead> -->
-
-			<!-- 							<tbody> -->
-			<%-- 								<c:choose> --%>
-			<%-- 									취소회원이 있는경우 --%>
-			<%-- 									<c:when --%>
-			<%-- 										test="${adminReserveList != null and fn:length(adminReserveList) > 0 }"> --%>
-			<%-- 										<c:forEach var="reservation" items="${adminReserveList }"> --%>
-			<!-- 											<tr style="height: 40px;"> -->
-			<!-- 												<form -->
-			<%-- 													action="${pageContext.request.contextPath }/reservation/ReservationCancel.re?res_number=${reservation.res_number }&res_price=${reservation.res_price }&res_checkin=${reservation.res_checkin }&res_checkout=${reservation.res_checkout }&res_rtype=${reservation.res_rtype }" --%>
-			<!-- 													method="POST"> -->
-			<%-- 												<td name="res_number">${reservation.res_number }</td> --%>
-			<%-- 												<td>${reservation.res_adults }</td> --%>
-			<%-- 												<td>${reservation.res_kids }</td> --%>
-			<%-- 												<td name="res_checkin">${reservation.res_checkin }</td> --%>
-			<%-- 												<td name="res_checkout">${reservation.res_checkout }</td> --%>
-			<%-- 												<td name="res_rtype">${reservation.res_rtype }</td> --%>
-			<%-- 												<td name="res_price">${reservation.res_price }</td> --%>
-			<%-- 												<td>${reservation.res_time}</td> --%>
-			<!-- 												<td><button type='submit' -->
-			<!-- 														style="margin-left: 5px; margin-right: 5px; width: auto; background-color: #524b42; color: white; border: 0px; padding: 5px; padding-left: 10px; padding-right: 10px;">예약 -->
-			<!-- 														취소</button></td> -->
-			<!-- 												</form> -->
-			<!-- 											</tr> -->
-			<%-- 										</c:forEach> --%>
-			<%-- 									</c:when> --%>
-
-			<%-- 									취소회원이 없는경우 --%>
-			<%-- 									<c:otherwise> --%>
-			<!-- 										<tr> -->
-			<!-- 											<td>등록된 게시물이 없습니다.</td> -->
-			<!-- 										</tr> -->
-			<%-- 									</c:otherwise> --%>
-			<%-- 								</c:choose> --%>
-			<!-- 							</tbody> -->
-			<!-- 						</table> -->
-			<!-- 					</div> -->
-			<!-- 				</div> -->
-			<!-- 			</div> -->
-			<!-- 			</main> -->
-
 		</div>
 	</div>
 
 	<br>
 <script>
-    function edit(resnum, id,checkin, checkout, rtype, rprice){
-        let num = resnum;
-        let pw = prompt("비밀번호를 입력해주세요!");
-        if(pw = 1234){
-            alert("변경이 완료되었습니다.")
-            document.reedit.action = "${pageContext.request.contextPath }/admin/AdminReservationCancel.ad?res_number="+resnum+"&u_id="+id+"&res_checkin="+checkin+"&res_checkout="+checkout+"&res_rtype="+rtype+"&res_price="+rprice;
-            document.reedit.submit();
-        }else{
-            alert("비밀번호를 확인해 주세요!");
-        }
-    }
+	function edit(resnum, id,checkin, checkout, rtype, rprice){
+		let num = resnum;
+		let pw = prompt("비밀번호를 입력해주세요!");
+		if(pw = 1234){
+			alert("변경이 완료되었습니다.")
+			document.reedit.action = "${pageContext.request.contextPath }/admin/AdminReservationCancel.ad?res_number="+resnum+"&u_id="+id+"&res_checkin="+checkin+"&res_checkout="+checkout+"&res_rtype="+rtype+"&res_price="+rprice;
+			document.reedit.submit();
+		}else{
+			alert("비밀번호를 확인해 주세요!");
+		}
+	}
 </script>
 
 	<script

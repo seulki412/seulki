@@ -5,50 +5,64 @@ Chart.defaults.global.defaultFontColor = '#292b2c';
 // Area Chart Example
 var ctx = document.getElementById("myAAreaChart");
 var myLineChart = new Chart(ctx, {
-  type: 'line',
-  data: {
-    labels: ["Mar 1", "Mar 2", "Mar 3", "Mar 4", "Mar 5", "Mar 6", "Mar 7", "Mar 8", "Mar 9", "Mar 10", "Mar 11", "Mar 12", "Mar 13"],
-    datasets: [{
-      label: "Sessions",
-      lineTension: 0.3,
-      backgroundColor: "rgba(2,117,216,0.2)",
-      borderColor: "rgba(2,117,216,1)",
-      pointRadius: 5,
-      pointBackgroundColor: "rgba(2,117,216,1)",
-      pointBorderColor: "rgba(255,255,255,0.8)",
-      pointHoverRadius: 5,
-      pointHoverBackgroundColor: "rgba(2,117,216,1)",
-      pointHitRadius: 50,
-      pointBorderWidth: 2,
-      data: [10000, 30162, 26263, 18394, 18287, 28682, 31274, 33259, 25849, 24159, 32651, 31984, 38451],
-    }],
-  },
-  options: {
-    scales: {
-      xAxes: [{
-        time: {
-          unit: 'date'
-        },
-        gridLines: {
-          display: false
-        },
-        ticks: {
-          maxTicksLimit: 7
-        }
-      }],
-      yAxes: [{
-        ticks: {
-          min: 0,
-          max: 40000,
-          maxTicksLimit: 5
-        },
-        gridLines: {
-          color: "rgba(0, 0, 0, .125)",
-        }
-      }],
-    },
-    legend: {
-      display: false
-    }
-  }
+	type: 'bar',
+     data: {
+                labels: ['7월', '8월', '9월', '10월', '11월', '12월'],
+                datasets: [{
+                    label: '바 그래프',
+                    type : 'bar', // 'bar' type, 전체 타입과 같다면 생략가능
+                    backgroundColor: 'rgba(75, 192, 192, 1)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    data: [Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100)]
+                }, {
+                    label: '라인 그래프1',
+                    type : 'line',         // 'line' type
+                    fill : false,         // 채우기 없음
+                    lineTension : 0.2,  // 0이면 꺾은선 그래프, 숫자가 높을수록 둥글해짐
+                    pointRadius : 0,    // 각 지점에 포인트 주지 않음
+                    backgroundColor: 'rgb(255, 153, 0)',
+                    borderColor: 'rgb(255, 153, 0)',
+                    data: [Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100),
+					Math.floor(Math.random() * 100)]
+                }]
+            },
+			options: {
+			scales: {
+				xAxes: [{
+					time: {
+						unit: 'month'
+					},
+					gridLines: {
+						display: false
+					},
+					ticks: {
+						maxTicksLimit: 7
+					}
+				}],
+				yAxes: [{
+					ticks: {
+						min: 0,
+						max: 100,
+						maxTicksLimit: 10
+					},
+					gridLines: {
+						color: "rgba(0, 0, 0, .125)",
+					}
+				}],
+			},
+			legend: {
+				display: false
+			}
+		}
 });

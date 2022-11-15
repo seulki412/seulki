@@ -33,13 +33,6 @@ public class AdminDAO {
 		return reserveList;
 	}
 	
-	// 예약취소내역 조회
-	public List<ResCancelDTO>  getAdminReserveCancelList(String u_id) {
-		List<ResCancelDTO> reserveCancelList = sqlSession.selectList("Admin.getAdminReserveCancelList",u_id);
-
-		return reserveCancelList;
-	}
-	
 	// 매출액내역 조회
 	public List<ReservationDTO> getSalesList() {
 		List<ReservationDTO> salesList = sqlSession.selectList("Admin.getSalesList");
@@ -58,17 +51,6 @@ public class AdminDAO {
 		boolean result = false;
 
 		if (sqlSession.delete("Admin.deleteMember", u_id) == 1) {
-			result = true;
-		}
-
-		return result;
-	}
-
-	// 예약회원 삭제
-	public boolean deleteReserve(int res_number) {
-		boolean result = false;
-		
-		if (sqlSession.delete("Admin.deleteReserve", res_number) == 1) {
 			result = true;
 		}
 
@@ -100,6 +82,8 @@ public class AdminDAO {
 	public int getRoomCnt() {
 		return sqlSession.selectOne("Admin.getRoomCnt");
 	}
+	
+	
 	
 	// 객실 추가
 	public boolean insertRoom(RoomDTO rdto) {
@@ -133,6 +117,8 @@ public class AdminDAO {
 		return result;
 	}
 	
+	
+	// 예약회원 인서트
 	public boolean insertResCancel(ResCancelDTO rcdto) {
 		boolean result = false;
 		
@@ -142,7 +128,7 @@ public class AdminDAO {
 		
 		return result;	
 	}
-
+	// 예약회원 딜리트
 	public boolean updateReservation(int res_number) {
 		boolean result = false;
 		
@@ -152,12 +138,35 @@ public class AdminDAO {
 		return result;
 		
 	}
-
-
-	// r_id 시퀀스 가져오기
-	public int getSeq() {
-		return sqlSession.selectOne("Files.getSeq");
+	// 월별 예약 수
+	public int ReCnt9() {
+		return sqlSession.selectOne("Admin.ReCnt9");
 	}
+	public int ReCnt10() {
+		return sqlSession.selectOne("Admin.ReCnt10");
+	}
+	public int ReCnt11() {
+		return sqlSession.selectOne("Admin.ReCnt11");
+	}
+	public int ReCnt12() {
+		return sqlSession.selectOne("Admin.ReCnt12");
+	}
+	
+	// 월별 매출액
+	public int ReSales9() {
+		return sqlSession.selectOne("Admin.ReSales9");
+	}
+	public int ReSales10() {
+		return sqlSession.selectOne("Admin.ReSales10");
+	}
+	public int ReSales11() {
+		return sqlSession.selectOne("Admin.ReSales11");
+	}
+	public int ReSales12() {
+		return sqlSession.selectOne("Admin.ReSales12");
+	}
+
+
 	
 
 

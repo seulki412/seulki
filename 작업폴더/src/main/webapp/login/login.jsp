@@ -61,6 +61,138 @@
                     <input type="submit" value="로그인"> 
                     <input type="button" value="회원가입" onclick="location.href='/join/join.jsp'">               
 	        </form>
+	 
+	 
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>	 
+
+<div style="display:inline-block">
+<ul>
+	<li onclick="kakaoLogin();">
+   <a id="kakao-login-btn" href="javascript:loginWithKakao()">
+  <img src="../image/카카오이미지1.png" alt="카카오 로그인 버튼" />
+</a>
+	</li>
+	
+</ul>
+</div>
+<!-- <div style="display:inline-block;"> -->
+<!-- 	<li onclick="kakaoLogout();"> -->
+<!--       <a href="javascript:void(0)"> -->
+<!--           <span>카카오 로그아웃</span> -->
+<!--       </a> -->
+<!-- 	</li> -->
+<!-- </div> -->
+<!-- 카카오 스크립트 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script>
+Kakao.init('6fe3352539eb33c1a5aeefa1c717ba84'); //발급받은 키 중 javascript키를 사용해준다.
+console.log(Kakao.isInitialized()); // sdk초기화여부판단
+
+//카카오로그인 (도메인에 등록한 카카오 로그인 버튼 클릭시 카카오 아이디로 로그인)
+function kakaoLogin() {
+    Kakao.Auth.login({
+      success: function (response) {
+        Kakao.API.request({
+          url: '/v2/user/me',
+          success: function (response) {
+        	  location.href="${pageContext.request.contextPath}/user/UserLoginOk.us?u_id=test&u_password=1234"
+          },
+          fail: function (error) {
+            console.log(error)
+          },
+        })
+      },
+      fail: function (error) {
+        console.log(error)
+      },
+    })
+  }
+  
+//카카오로그아웃 (클릭시 카카오톡 로그아웃)
+function kakaoLogout() {
+    if (Kakao.Auth.getAccessToken()) {
+      Kakao.API.request({
+        url: '/v1/user/unlink',
+        success: function (response) {
+        	console.log(response)
+        },
+        fail: function (error) {
+          console.log(error)
+        },
+      })
+      Kakao.Auth.setAccessToken(undefined)
+    }
+  }  
+</script>
+<div style="margin-top:10px;">
+<ul>
+	<li>
+      <!-- 아래와같이 아이디를 꼭 써준다. -->
+     	<a id="naverIdLogin_loginButton" href="#">
+		<img src="https://static.nid.naver.com/oauth/big_g.PNG?version=js-2.0.1" height="55" width="auto">
+	</a>
+	</li>
+<!-- 	<li onclick="naverLogout(); return false;"> -->
+<!--       <a href="javascript:void(0)"> -->
+<!--           <span>네이버 로그아웃</span> -->
+<!--       </a> -->
+<!-- 	</li> -->
+</ul>
+</div>
+<!-- 네이버 스크립트 -->
+<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+
+<script>
+
+var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "dWAS6NvLyiwViWuAVRwy", //내 애플리케이션 정보에 cliendId를 입력해줍니다. (네이버 디벨로퍼 가입)
+			callbackUrl: "http://localhost:8081/login/naverlogin.jsp", // Callback URL 을 입력해줍니다. (로그인 성공후 이동할 주소)
+// 			callbackUrl: "${pageContext.request.contextPath}/user/UserLoginOk.us?u_id=test&u_password=1234", // Callback URL 을 입력해줍니다. (로그인 성공후 이동할 주소)
+			isPopup: false,
+			callbackHandle: true
+		}
+	);	
+
+naverLogin.init();
+
+window.addEventListener('load', function () {
+	naverLogin.getLoginStatus(function (status) {
+		if (status) {
+			var email = naverLogin.user.getEmail(); // 필수로 설정할것을 받아와 아래처럼 조건문을 줍니다. (일단 이메일 한개만 지정함)
+    		
+			console.log(naverLogin.user); 
+    		
+            if( email == undefined || email == null) {
+				alert("이메일은 필수정보입니다. 정보제공을 동의해주세요.");
+				naverLogin.reprompt();
+				return;
+			}
+		} else {
+			console.log("callback 처리에 실패하였습니다.");
+		}
+	});
+});
+
+
+var testPopUp;
+function openPopUp() {
+    testPopUp= window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
+}
+function closePopUp(){
+    testPopUp.close();
+}
+
+function naverLogout() {
+	openPopUp();
+	setTimeout(function() {
+		closePopUp();
+		}, 1000);
+	
+	
+}
+</script>
+
     </div>
 
     <br>

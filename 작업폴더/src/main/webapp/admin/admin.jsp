@@ -23,9 +23,15 @@
 </head>
 
 <body class="sb-nav-fixed">
+
+	<c:set var="adminList" value="${requestScope.adminList }" />
+	<c:set var="adminReserveList" value="${requestScope.adminReserveList }" />
+	<c:set var="RtotalCnt" value="${requestScope.RtotalCnt }" />
+
+
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="admin.jsp">ADMIN</a>
+        <a class="navbar-brand ps-3" href="${pageContext.request.contextPath }/admin/AdminMain.ad">ADMIN</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
@@ -45,7 +51,7 @@
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse"
                                 data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                관리 테이블
+                                정보 관리
                                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                             </a>
 
@@ -62,9 +68,6 @@
                                     <a class="nav-link collapsed" href="${pageContext.request.contextPath }/admin/AdminRoomList.ad">
 										객실정보
 									</a>
-                                    <a class="nav-link collapsed" href="/admin/room_add.jsp">
-										객실등록
-									</a>
                                 </nav>
                             </div>
                             <a class="nav-link" href="${pageContext.request.contextPath }/admin/AdminReservationList.ad">
@@ -76,10 +79,6 @@
                                 메인 홈페이지
                             </a>
                             <hr>
-                            <a class="nav-link" href="#">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                ADMIN 모드 종료
-                            </a>
                         </div>
                     </div>
 
@@ -93,45 +92,16 @@
                 <div class="container-fluid px-4">
                     <h1 class="mt-4">ADMIN</h1>
                     <ol class="breadcrumb mb-4">
-                        <li class="breadcrumb-item active">management</li>
+                        <li class="breadcrumb-item active"></li>
                     </ol>
-                    <div class="row">
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-primary text-white mb-4">
-                                <div class="card-body">회원정보</div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">회원 수</a>
-                                    <div class="small text-white">숫자</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-warning text-white mb-4">
-                                <div class="card-body">객실정보</div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">객실 수</a>
-                                    <div class="small text-white">숫자</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-3 col-md-6">
-                            <div class="card bg-danger text-white mb-4">
-                                <div class="card-body">예약목록</div>
-                                <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <a class="small text-white stretched-link" href="#">예약 인원 수</a>
-                                    <div class="small text-white">숫자</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <div class="row">
                         <div class="col-xl-6">
                             <div class="card mb-4">
                                 <div class="card-header">
                                     <i class="fas fa-chart-area me-1"></i>
-                                    전체 회원
+                                    매출 내역
                                 </div>
-                                <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                <div class="card-body"><canvas id="myAAreaChart" width="100%" height="40"></canvas></div>
                             </div>
                         </div>
                         
@@ -146,83 +116,112 @@
                         </div>
                     </div>
                     
-                    <div class="col-xl-12">
-                        <div class="card mb-4">
-                            <div class="card-header">
-                                <i class="fas fa-chart-area me-1"></i>
-                                매출액
-                            </div>
-                            <div class="card-body"><canvas id="myAAreaChart" width="100%" height="20"></canvas></div>
-                        </div>
-                    </div>
+<!--                     <div class="col-xl-12"> -->
+<!--                         <div class="card mb-4"> -->
+<!--                             <div class="card-header"> -->
+<!--                                 <i class="fas fa-chart-area me-1"></i> -->
+<!--                                 매출액 -->
+<!--                             </div> -->
+<%--                             <div class="card-body"><canvas id="myAAreaChart" width="100%" height="20"></canvas></div> --%>
+<!--                         </div> -->
+<!--                     </div> -->
 
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            예약내역
+                            회원내역
                         </div>
                         <div class="card-body">
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
+                                    
                                         <th>고객명</th>
-                                        <th>객실명</th>
-                                        <th>체크인</th>
-                                        <th>체크아웃</th>
-                                        <th>금액</th>
-                                        <th></th>
+                                        <th>아이디</th>
+                                        <th>비밀번호</th>
+                                        <th>이메일</th>
+                                        <th>전화번호</th>
                                     </tr>
                                 </thead>
                                
                                 <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                        <td>
-                                            <input type="button" value="수정">
-                                            &nbsp;&nbsp;
-                                            <input type="button" value="삭제">
-                                        </td>                                   
-                                     </tr>
-                                </tbody>
+
+									<c:choose>
+										<c:when
+											test="${adminList != null and fn:length(adminList) > 0 }">
+											<c:forEach var="admin" items="${adminList }">
+												<tr>
+													<td>${admin.u_name}</td>
+													<td>${admin.u_id}</td>
+													<td>${admin.u_password}</td>
+													<td>${admin.u_email}</td>
+													<td>${admin.u_phone}</td>
+												</tr>
+											</c:forEach>
+										</c:when>
+
+										<c:otherwise>
+										
+											<tr>
+												<td>등록된 게시물이 없습니다.</td>
+											</tr>
+										</c:otherwise>
+									</c:choose>
+								</tbody>
                             </table>
                         </div>
                     </div>
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            예약취소내역
+                            예약내역
                         </div>
                         <div class="card-body">
                             <table id="datatablesSimple2">
-                                <thead>
-                                    <tr>
-                                        <th>고객명</th>
-                                        <th>객실명</th>
-                                        <th>체크인</th>
-                                        <th>체크아웃</th>
-                                        <th>금액</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                               
-                                <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                        <td>
-                                            <input type="button" value="수정">
-                                            &nbsp;&nbsp;
-                                            <input type="button" value="삭제">
-                                        </td>                                   
-                                     </tr>
-                                </tbody>
+                               <thead>
+
+									<tr>
+										<th>예약번호</th>
+										<th>아이디</th>
+										<th>성인</th>
+										<th>어린이</th>
+										<th>체크인</th>
+										<th>체크아웃</th>
+										<th>객실</th>
+										<th>금액</th>
+										<th>예약일</th>
+									</tr>
+								</thead>
+
+
+								<tbody>
+
+									<c:choose>
+										<c:when
+											test="${adminReserveList != null and fn:length(adminReserveList) > 0 }">
+											<c:forEach var="reserve" items="${adminReserveList }">
+												<tr>
+													<td>${reserve.res_number}</td>
+													<td>${reserve.u_id}</td>
+													<td>${reserve.res_adults}</td>
+													<td>${reserve.res_kids}</td>
+													<td>${reserve.res_checkin}</td>
+													<td>${reserve.res_checkout}</td>
+													<td>${reserve.res_rtype}</td>
+													<td>${reserve.res_price}</td>
+													<td>${reserve.res_time}</td>
+												</tr>
+											</c:forEach>
+										</c:when>
+
+										<c:otherwise>
+											<tr>
+											
+												<td>등록된 게시물이 없습니다.</td>
+											</tr>
+										</c:otherwise>
+									</c:choose>
+								</tbody>
                             </table>
                         </div>
                     </div>
@@ -233,18 +232,137 @@
     </div>
 
     <br>
+
+
     
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="js/chart-area-demo.js"></script>
-    <script src="js/chart-area-demo2.js"></script>
-    <script src="js/chart-bar-demo.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script> -->
+<!--     <script src="js/chart-area-demo.js"></script> -->
+<!--     <script src="js/chart-area-demo2.js"></script> -->
+<!--     <script src="js/chart-bar-demo.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="js/simple-datatables.js" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
     <script src="js/datatables-simple-demo2.js"></script>
 </body>
+<script type="text/javascript">
+
+var ctx = document.getElementById("myBarChart");
+var myLineChart = new Chart(ctx,
+		{
+
+			type : 'bar',
+			data : {
+				labels : [ '9월', '10월', '11월', '12월' ],
+				datasets : [ {
+					label : "예약 수",
+					backgroundColor : [ 
+							'rgba(255, 99, 132, 0.5)',
+							'rgba(54, 162, 235, 0.5)',
+							'rgba(255, 206, 86, 0.5)',
+							'rgba(75, 192, 192, 0.5)',
+							'rgba(153, 102, 255, 0.5)',
+							'rgba(200, 133, 200, 0.5)',
+							'rgba(255, 159, 64, 0.5)' ],
+					borderColor : [ 
+							'rgb(255, 99, 132,1.5)',
+							'rgba(54, 162, 235, 1.5)',
+							'rgba(255, 206, 86, 1.5)',
+							'rgba(75, 192, 192, 1.5)',
+							'rgba(153, 102, 255, 1.5)',
+							'rgba(200, 133, 200, 1.5)',
+							'rgba(255, 159, 1, 1.5)' ],
+					data : [ "${ReCnt9}", "${ReCnt10}", "${ReCnt11}","${ReCnt12}" ],
+				} ],
+			},
+			options : {
+				scales : {
+					xAxes : [ {
+						time : {
+							unit : 'month'
+						},
+						gridLines : {
+							display : false
+						},
+						ticks : {
+							maxTicksLimit : 10
+						}
+					} ],
+					yAxes : [ {
+						ticks : {
+							min : 0,
+							max : 20,
+							maxTicksLimit : 10
+						},
+						gridLines : {
+							display : true
+						}
+					} ],
+				},
+				legend : {
+					display : false
+				}
+			}
+		});
+
+var ctx = document.getElementById("myAAreaChart");
+var myLineChart = new Chart(ctx, {
+	type : 'bar',
+	data : {
+		labels : [ '9월', '10월', '11월', '12월' ],
+		datasets : [
+				{
+					label : '바 그래프',
+					type : 'bar', // 'bar' type, 전체 타입과 같다면 생략가능
+					backgroundColor : [ 
+							'rgba(75, 192, 192, 0.5)',
+							'rgba(153, 102, 255, 0.5)',
+							'rgba(200, 133, 200, 0.5)',
+							'rgba(255, 159, 64, 0.5)' ],
+					borderColor : [ 
+							'rgba(75, 192, 192, 1.5)',
+							'rgba(153, 102, 255, 1.5)',
+							'rgba(200, 133, 200, 1.5)',
+							'rgba(255, 159, 1, 1.5)' ],
+					data : [ "${ReSales9}", "${ReSales10}", "${ReSales11}","${ReSales12}" ]
+				}, ]
+	},
+	options : {
+		scales : {
+			xAxes : [ {
+				time : {
+					unit : 'month'
+				},
+				gridLines : {
+					display : false
+				},
+				ticks : {
+					maxTicksLimit : 7
+				}
+			} ],
+			yAxes : [ {
+				ticks : {
+					min : 0,
+					max : 2500000,
+					maxTicksLimit : 10
+				},
+				gridLines : {
+					display : true
+				}
+			} ],
+		},
+		legend : {
+			display : false
+		}
+	}
+});
+
+
+
+</script>
+
+
 
 </html>

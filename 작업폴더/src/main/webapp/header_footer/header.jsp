@@ -46,10 +46,10 @@
                         <div class="top-header-content" >
                             <!-- Top Social Area -->
                             <div class="top-social-area ml-auto">
-                                <a href="#"><i class="fa fa-facebook" style="color: #f1e3c4;" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-twitter" style="color: #f1e3c4;" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-tripadvisor" style="color: #f1e3c4;" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" style="color: #f1e3c4;" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-tripadvisor" aria-hidden="true"></i></a>
+                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -92,7 +92,7 @@
                                    <a href="../reservation/reservation.jsp" >예약 </a>|                              
                                    <a href="${pageContext.request.contextPath}/user/userInfo.us" style="display:<%=info %>">내 정보 </a>
                                    <a href="../login/login.jsp" style="display:<%=login %>">로그인 </a>
-                                   <a href="../admin/admin.jsp" style="display:<%=admin %>">관리자페이지 </a>                                 
+                                   <a href="../admin/AdminMain.ad" style="display:<%=admin %>">관리자페이지 </a>                                 
                                     <%=join %>
                                 </div>
                                

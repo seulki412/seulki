@@ -33,7 +33,7 @@
 
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 		<!-- Navbar Brand-->
-		<a class="navbar-brand ps-3" href="admin.jsp">ADMIN</a>
+		<a class="navbar-brand ps-3" href="${pageContext.request.contextPath }/admin/AdminMain.ad">ADMIN</a>
 		<!-- Sidebar Toggle-->
 		<button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
 			id="sidebarToggle" href="#!">
@@ -90,11 +90,6 @@
 								</div> 메인 홈페이지
 							</a>
 							<hr>
-							<a class="nav-link" href="#">
-								<div class="sb-nav-link-icon">
-									<i class="fas fa-table"></i>
-								</div> ADMIN 모드 종료
-							</a>
 						</div>
 					</div>
 
