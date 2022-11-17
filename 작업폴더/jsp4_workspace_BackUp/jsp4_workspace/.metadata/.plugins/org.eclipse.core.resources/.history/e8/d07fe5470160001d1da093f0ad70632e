@@ -1,0 +1,5 @@
+package com.shinnaHotel.DTO;
+
+public class ResCancelDTO {
+
+}

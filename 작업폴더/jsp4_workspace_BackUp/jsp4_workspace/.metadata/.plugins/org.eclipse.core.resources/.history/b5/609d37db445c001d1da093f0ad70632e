@@ -1,0 +1,42 @@
+package com.shinnaHotel.reservation;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.shinnaHotel.DAO.ReservationDAO;
+import com.shinnaHotel.action.Action;
+import com.shinnaHotel.action.ActionForward;
+
+public class RoomSearchAction implements Action{
+	// 예약가능한 룸 조회
+	
+	@Override
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
+		ReservationDAO rdao = new ReservationDAO();
+		ActionForward forward = new ActionForward();
+		
+		List<String> datas = new ArrayList<>();
+		
+		String checkin_date = req.getParameter("checkin_date");
+		String checkout_date = req.getParameter("checkout_date");
+		String roomCnt = req.getParameter("room");
+		String adults = req.getParameter("adults");
+		String children = req.getParameter("children");
+		
+		datas.add(req.getParameter("checkin_date"));
+		datas.add(req.getParameter("checkout_date"));
+		datas.add(req.getParameter("room"));
+		datas.add(req.getParameter("adults"));
+		datas.add(req.getParameter("children"));
+		
+		rdao.serchRoom(datas);
+		
+		
+		
+		return forward;
+	}
+	 
+}

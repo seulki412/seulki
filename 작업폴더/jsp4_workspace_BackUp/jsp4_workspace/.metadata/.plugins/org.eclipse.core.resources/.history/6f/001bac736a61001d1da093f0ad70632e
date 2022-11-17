@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+ 
+ function search(){
+	let frm = document.searchForm;
+	let checkin_date = frm.checkin_date;
+	let checkout_date = frm.checkout_date;
+	let room = frm.room;
+	let adults = frm.adults;
+	let children = frm.children;
+	
+	if(!checkin_date.value){
+		alert("체크인 날짜를 선택하세요");
+		checkin_date.focus();
+		return false;
+	}
+	
+	if(!checkout_date.value){
+		alert("체크아웃 날짜를 입력하세요");
+		checkout_date.focus();
+		return false;
+	}
+	
+	if(checkout_date.value <= checkin_date.value){
+		alert("체크인 날짜 이후로 선택하세요");
+		checkout_date.focus();
+		return false;
+	}
+}

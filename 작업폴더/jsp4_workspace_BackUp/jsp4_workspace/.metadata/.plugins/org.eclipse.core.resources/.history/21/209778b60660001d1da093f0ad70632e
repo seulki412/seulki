@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="Reservation">
+
+	<select id="searchRoom" parameterType="hashmap" resultType="roomdto">
+		SELECT * FROM room WHERE R_ID NOT in(
+            SELECT R_ID 
+            FROM RESERVATION r 
+            WHERE RES_CHECKIN = #{checkin_date} 
+            OR  (RES_CHECKIN &lt; #{checkin_date}  AND RES_CHECKOUT &gt; #{checkout_date})
+            OR  (RES_CHECKIN &gt; #{checkin_date}  AND RES_CHECKIN &lt; #{checkout_date} ))
+	</select>
+	
+	<insert id="insertReservation" parameterType="reservationdto">
+		INSERT INTO RESERVATION 
+		VALUES (24, #{u_id}, #{res_adults}, #{res_kids}, #{res_checkin}, #{res_checkout}, #{res_rtype}, #{res_price}, sysdate, 1, 'N')
+	</insert>
+	
+	<select id="selectReservation" parameterType="String" resultType="reservationdto">
+		SELECT * FROM RESERVATION WHERE u_id = #{u_id}
+	</select>
+	
+	<insert id="insertResCancel" parameterType="rescanceldto">
+		INSERT INTO RESERVATIONCANCEL
+		VALUES (#{res_number}, #{u_id}, #{res_checkin}, #{res_checkout} , #{res_rtype}, #{res_price},  #{cancel_date} )
+	
+	</insert>
+
+<!-- 	<delete id="res_delete" parameterType="_int"> -->
+		
+<!-- 	</delete> -->
+</mapper>

@@ -1,0 +1,11 @@
+/**
+ * 
+ */
+ 
+ function search(){
+	let frm = document.searchForm;
+	let checkin_date = frm.checkin_date;
+	let checkout_date = frm.checkout_date;
+	let room = frm.room;
+	let adults = frm.adults;
+}

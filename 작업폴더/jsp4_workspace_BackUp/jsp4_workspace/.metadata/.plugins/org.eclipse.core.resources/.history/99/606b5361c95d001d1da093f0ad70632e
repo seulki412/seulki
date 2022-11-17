@@ -1,0 +1,69 @@
+package com.shinnaHotel.reservation;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.shinnaHotel.DAO.ReservationDAO;
+import com.shinnaHotel.DTO.ReservationDTO;
+import com.shinnaHotel.action.Action;
+import com.shinnaHotel.action.ActionForward;
+
+public class ReservationCheckAction implements Action{
+
+	@Override
+	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
+//		ReservationDAO rdao = new ReservationDAO();
+//		ReservationDTO rdto = new ReservationDTO();
+//		
+//		ActionForward forward = new ActionForward();
+//		
+//		
+//		// 체크인, 체크아웃 String -> Date로 변환
+//		String checkInDateSTR = req.getParameter("checkin_date");
+//		String CheckOutDateSTR = req.getParameter("checkout_date");
+//		System.out.println(checkInDateSTR);
+//		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-mm-dd");
+//		Date checkIn;
+//		Date checkOut;
+//		try {
+//			checkIn = formatter.parse(checkInDateSTR);
+//			checkOut = formatter.parse(CheckOutDateSTR);
+//			rdto.setRes_checkin(checkIn);
+//			rdto.setRes_checkout(checkOut);
+//			rdto.setRes_adults(Integer.parseInt(req.getParameter("adults")));
+//			rdto.setRes_kids(Integer.parseInt(req.getParameter("children")));
+//			rdto.setRes_price(Integer.parseInt(req.getParameter("r_price")));
+//			rdto.setRes_rtype(req.getParameter("r_type"));
+//			System.out.println(checkIn);
+//			System.out.println(checkOut);
+//			System.out.println(req.getParameter("children"));
+//		} catch (ParseException e) {
+//			e.printStackTrace();
+//		}
+//		
+//		//테스트
+//		
+//		
+//		forward.setRedirect(false);
+//		if(rdao.insertReservation(rdto)) {
+////			int res_number = rdao.getSeq();
+//			forward.setPath("reservationcheck.jsp");
+//			System.out.println("인서트 성공");
+//		}else {
+//			forward.setPath("reservation.jsp");
+//			System.out.println("인서트실패");
+//		}
+//		
+//		
+//		return forward;
+//	
+//	}
+
+}
+}
